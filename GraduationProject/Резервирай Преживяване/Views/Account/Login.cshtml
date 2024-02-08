@@ -1,0 +1,22 @@
+﻿@model Резервирай_Преживяване.Models.Account.LoginViewModel
+@{
+    ViewData["Title"] = "Login";
+    Layout = "_LayoutLogin";
+}
+<link rel="stylesheet" href="~/css//login.css">
+<div class="wrapper">
+    <form class="form-signin" method="post">
+        <h1 class="text-center">Login</h1>
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <span asp-validation-for="Username" class="text-danger"></span>
+        <input class="form-control" placeholder="Username" autocomplete="username" aria-required="true" asp-for="Username" />
+
+        <span asp-validation-for="Password" class="text-danger"></span>
+        <input class="form-control" placeholder="Password" type="password" autocomplete="new-password" aria-required="true" asp-for="Password" />
+
+        <button type="submit" name="signup_submit">Login</button>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

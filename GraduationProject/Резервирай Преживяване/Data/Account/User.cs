@@ -13,10 +13,6 @@ namespace Резервирай_Преживяване.Data.Account
         [Required]
         [StringLength (30, MinimumLength = 2)]
         public string? LastName { get; set; }
-        [Required]
-        public DateTime Birthday { get; set; }
-        [Required]
-        public string? Gender { get; set; }
         public string? Image { get; set; }
         public HashSet<ReservationUser> ReservationUsers { get; set; } = new HashSet<ReservationUser>();
     }

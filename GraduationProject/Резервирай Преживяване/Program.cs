@@ -1,7 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data;
 using Резервирай_Преживяване.Data.Account;
+using Резервирай_Преживяване.Services;
 
 namespace Резервирай_Преживяване
 {
@@ -17,7 +19,15 @@ namespace Резервирай_Преживяване
                 options.UseSqlServer(connectionString));
             builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
-            builder.Services.AddDefaultIdentity<User>(options => options.SignIn.RequireConfirmedAccount = false)
+            builder.Services.AddDefaultIdentity<User>(options =>
+            {
+                options.SignIn.RequireConfirmedAccount = false;
+                options.Password.RequireDigit = true;
+                options.Password.RequireLowercase = true;
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequireUppercase = true;
+                options.Password.RequiredLength = 6;
+            })
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
@@ -25,6 +35,8 @@ namespace Резервирай_Преживяване
             {
                 options.LogoutPath = "/Account/Login";
             });
+
+            builder.Services.AddScoped<IAccountService, AccountService>();
 
             var app = builder.Build();
 

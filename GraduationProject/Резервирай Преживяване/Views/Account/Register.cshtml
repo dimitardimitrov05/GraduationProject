@@ -1,0 +1,39 @@
+﻿@model Резервирай_Преживяване.Models.Account.RegisterViewModel
+@{
+    ViewData["Title"] = "Sign up";
+    Layout = "_LayoutLogin";
+}
+<link rel="stylesheet" href="~/css//register.css"/>
+<div id="login-box">
+    <div class="left">
+        <h1>@ViewData["Title"]</h1>
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" style="font-size:12px"></div>
+            <span asp-validation-for="FirstName" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="First name" autocomplete="firstname" aria-required="true" asp-for="FirstName" />
+
+            <span asp-validation-for="LastName" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="Last name" autocomplete="lastname" aria-required="true" asp-for="LastName" />
+
+            <span asp-validation-for="Username" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="Username" autocomplete="username" aria-required="true" asp-for="Username" />
+
+            <span asp-validation-for="Email" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="Email" autocomplete="email" type="email" aria-required="true" asp-for="Email" />
+
+            <span asp-validation-for="Password" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="Password" type="password" autocomplete="new-password" aria-required="true" asp-for="Password" />
+
+            <span asp-validation-for="ConfirmPassword" class="text-danger" style="font-size:12px;"></span>
+            <input class="form-control" placeholder="Confirm password" autocomplete="new-password" aria-required="true" asp-for="ConfirmPassword" />
+
+            <button type="submit" name="signup_submit">Sign me up</button>
+        </form>
+    </div>
+
+    <div class="right">
+    </div>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial"/>
+}
