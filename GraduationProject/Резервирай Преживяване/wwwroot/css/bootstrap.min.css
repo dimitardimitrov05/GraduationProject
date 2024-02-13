@@ -236,15 +236,9 @@ a {
     text-decoration: none
 }
 
-a:hover {
-    color: #cb8112
-}
 
-a:not([href]):not([class]),
-a:not([href]):not([class]):hover {
-    color: inherit;
-    text-decoration: none
-}
+
+
 
 pre,
 code,
@@ -3086,7 +3080,8 @@ fieldset:disabled .btn {
     border-color: #FEA116
 }
 
-.btn-primary:hover {
+.btn-primary:
+{
     color: #000;
     background-color: #feaf39;
     border-color: #feaa2d
@@ -4458,7 +4453,7 @@ fieldset:disabled .btn {
 .navbar-nav {
     display: flex;
     flex-direction: column;
-    padding-left: 0;
+    padding-left: 150px;
     margin-bottom: 0;
     list-style: none
 }

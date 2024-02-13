@@ -202,9 +202,7 @@
     transition: .5s;
 }
 
-.service-item:hover {
-    background: var(--primary);
-}
+
 
 .service-item .service-icon {
     margin: 0 auto 30px auto;
@@ -219,11 +217,7 @@
     transition: .5s;
 }
 
-.service-item:hover i,
-.service-item:hover h5,
-.service-item:hover p {
-    color: #FFFFFF !important;
-}
+
 
 
 /*** Youtube Video ***/
@@ -422,8 +416,6 @@
 
 .footer {
     position: sticky;
-    margin-top: -110px;
-    padding-top: 180px;
     height:10%;
 }
 
