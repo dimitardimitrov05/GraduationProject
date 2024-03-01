@@ -28,6 +28,7 @@ namespace Резервирай_Преживяване
                 options.Password.RequireUppercase = true;
                 options.Password.RequiredLength = 6;
             })
+                .AddRoles<IdentityRole>()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
@@ -36,7 +37,7 @@ namespace Резервирай_Преживяване
                 options.LogoutPath = "/Account/Login";
             });
 
-            builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IResortService, ResortService>();
 
             var app = builder.Build();
 

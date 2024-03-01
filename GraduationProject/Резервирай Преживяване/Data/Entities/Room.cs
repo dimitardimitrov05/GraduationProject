@@ -21,7 +21,7 @@ namespace Резервирай_Преживяване.Data.Entities
         public int? Bathrooms { get; set; }
         [Required]
         public Guid? ResortId { get; set; }
-        public Resort Resort { get; set; }
+        public Resort? Resort { get; set; }
         public HashSet<RoomReservation> RoomReservations { get; set; } = new HashSet<RoomReservation>();
         public HashSet<Image> Images { get; set; } = new HashSet<Image>();
     }

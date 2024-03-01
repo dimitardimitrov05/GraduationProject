@@ -12,6 +12,6 @@ namespace Резервирай_Преживяване.Data.Entities
         public string? Description { get; set; }
         [Required]
         public Guid CityId { get; set; }
-        public City City { get; set; }
+        public City? City { get; set; }
     }
 }

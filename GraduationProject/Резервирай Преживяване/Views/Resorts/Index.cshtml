@@ -1,0 +1,139 @@
+﻿@model Резервирай_Преживяване.Models.ResortViewModels.IndexResortsViewModel
+
+<link href="img/favicon.ico" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="lib/animate/animate.min.css" rel="stylesheet">
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+<link href="~/css/allResorts.css" rel="stylesheet" />
+
+<form class="mb-3 mt-3">
+    <button asp-controller="Resorts" asp-action="Add" style="margin-left: 20px;" class="btn btn-primary">Добави хотел</button>
+    <div class="row">
+        <div class="col-3" style="margin-bottom: 50px;">
+            <div class="card" style="margin-left: 20px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                <div class="card-body">
+                    <p class="card-title" style="font: 20px; font-weight: bold; color: black;">Подреди по: </p>
+                    <ul class="list-group">
+                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="OrdeByStars">Оценка на мястото</a></li>
+                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="AllHotels">Хотели</a></li>
+                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="AllGuesthouses">Къщи за гости</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="card" style="margin-left: 20px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
+                <div class="card-body">
+                    <p class="card-title" style="font: 20px; font-weight: bold; color: black;">Филтри: </p>
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Локация</p>
+                            <select class="form-select" asp-for="FilterCityName" asp-items="@ViewBag.Cities">
+                                <option value="" disabled selected>Избери град</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Оценка на мястото</p>
+                            <input type="radio" asp-for="FilterStarResort" value="1" />
+                            <label class="form-label">1 звезда</label><br />
+                            <input type="radio" asp-for="FilterStarResort" value="2" />
+                            <label class="form-label">2 звезди</label><br />
+                            <input type="radio" asp-for="FilterStarResort" value="3" />
+                            <label class="form-label">3 звезди</label><br />
+                            <input type="radio" asp-for="FilterStarResort" value="4" />
+                            <label class="form-label">4 звезди</label><br />
+                            <input type="radio" asp-for="FilterStarResort" value="5" />
+                            <label class="form-label">5 звезди</label>
+                        </div>
+                    </div>
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Цена на стая</p>
+                            <input type="radio" asp-for="PricePerNight" value="30" />
+                            <label class="form-label">0-30</label><br />
+                            <input type="radio" asp-for="PricePerNight" value="30-50" />
+                            <label class="form-label">30-50</label><br />
+                            <input type="radio" asp-for="PricePerNight" value="50-70" />
+                            <label class="form-label">50-70</label><br />
+                            <input type="radio" asp-for="PricePerNight" value="70-100" />
+                            <label class="form-label">70-100</label><br />
+                            <input type="radio" asp-for="PricePerNight" value="100" />
+                            <label class="form-label">над 100</label>
+                        </div>
+                    </div>
+                    <div class="row" style="justify-content: space-between">
+                        <div class="col-5" style="margin-right: 50px">
+                            <button class="btn btn-primary" style="font-size: 12px" asp-controller="Resorts" asp-action="Filter">Приложи филтрите</button>
+                        </div>
+                        <div class="col-5">
+                            <button class="btn btn-dark" style="font-size: 12px" asp-controller="Resorts" asp-action="RemoveFilters">Премахни филтрите</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-9">
+            <div style="margin-bottom: 50px; padding: 10px; padding-right: 20px;">
+                @if (Model.Resorts.Any())
+                {
+                    @foreach (var resort in Model.Resorts)
+                    {
+                        <div class="hotel" style="margin-top: 10px">
+                            <div class="image">
+                                <img src="@resort.ImageUrl" alt="" border="0" />
+                            </div>
+                            <div class="details">
+                                <div>
+                                    <header>
+                                        <h4 style="margin-left: 95px;" class="name">@resort.Name</h4>
+                                    </header>
+                                    <div style="margin-left: 95px">
+                                        @for (int i = 0; i < int.Parse(resort.Stars); i++)
+                                        {
+                                            <i class="bi bi-star-fill" style="color: #FFBF00"></i>
+                                        }
+                                    </div>
+                                    <p style="margin-left: 95px" class="persuasions">@resort?.City?.Name</p>
+                                </div>
+                                <div class="info">
+                                    <h3 class="name"></h3>
+                                    <div class="facilities">
+                                    </div>
+                                </div>
+                                <div class="room">
+                                    <button asp-controller="Resorts" asp-action="Info" asp-route-id="@resort?.Id" style="margin-left: 95px; border-radius: 3px;" class="btn btn-dark">Виж още</button>
+                                    <p>sdfdcsg</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                }
+                else
+                {
+                    <p class="text-center" style="font-size: 30px">Няма намерени хотели</p>
+                }
+            </div>
+        </div>
+    </div>
+</form>
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>

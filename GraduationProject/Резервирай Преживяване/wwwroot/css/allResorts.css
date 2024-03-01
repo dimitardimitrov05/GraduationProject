@@ -1,0 +1,124 @@
+﻿.hotel, .hotel * {
+    box-sizing: border-box;
+}
+
+.hotel {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    padding: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+    .hotel .image {
+        width: 25%;
+        padding: 8px;
+    }
+
+        .hotel .image img {
+            width: 350px;
+            height: 200px;
+            border-radius: 2px;
+        }
+
+    .hotel .details {
+        width: 75%;
+        padding: 8px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+        .hotel .details header {
+            display: flex;
+            justify-content: space-between;
+        }
+
+    .hotel header .name {
+        text-decoration: none;
+        color: #feaf39;
+        font-weight: bold;
+    }
+
+    .hotel header .review {
+        display: flex;
+    }
+
+    .hotel .review .info {
+        margin-right: 8px;
+        text-align: right;
+    }
+
+    .hotel .review .text {
+        color: #003580;
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1;
+    }
+
+    .hotel .review .reviews-count {
+        color: #707070;
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        margin-top: 4px;
+    }
+
+    .hotel .review .score {
+        background: #003580;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+        font-weight: 500;
+        justify-content: center;
+        vertical-align: baseline;
+        border-radius: 6px 6px 6px 0;
+        height: 32px;
+        width: 32px;
+    }
+
+    .hotel .persuasions {
+        position: relative;
+    }
+
+        .hotel .persuasions .persuasion-message {
+            position: absolute;
+            opacity: 0;
+            transition: opacity 0.2s ease;
+        }
+
+        .hotel .persuasions .presuasion-message.visible {
+            opacity: 1;
+        }
+
+        .hotel .persuasions.only-first-is-shown .persuasion-message:first-child {
+            opacity: 1;
+        }
+
+    .hotel .room {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        align-items: flex-end;
+    }
+
+    .hotel .room-facility {
+        display: inline-block;
+        font-weight: bold;
+        line-height: 26px;
+        margin: 0 0 10px 0;
+        color: #0ab21b;
+    }
+
+        .hotel .room-facility:after {
+            display: inline-block;
+            margin-right: 10px;
+        }
+
+    .hotel .room .price {
+        font-size: 20px;
+        font-weight: 700;
+        color: #ff0202;
+    }

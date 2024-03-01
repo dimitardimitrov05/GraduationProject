@@ -151,7 +151,7 @@ h6,
 
 p {
     margin-top: 0;
-    margin-bottom: 1rem
+    margin-bottom: 0.5rem;
 }
 
 abbr[title],
@@ -3351,13 +3351,13 @@ fieldset:disabled .btn {
     border-color: #F1F8FF
 }
 
-.btn-light:hover {
+.header:hover {
     color: #000;
     background-color: #f3f9ff;
     border-color: #f2f9ff
 }
 
-.btn-check:focus+.btn-light,
+.btn-check:focus+.header,
 .btn-light:focus {
     color: #000;
     background-color: #f3f9ff;
@@ -5455,7 +5455,7 @@ fieldset:disabled .btn {
 .list-group-item {
     position: relative;
     display: block;
-    padding: .5rem 1rem;
+    padding: .3rem 0rem;
     color: #212529;
     background-color: #fff;
     border: 1px solid rgba(0, 0, 0, 0.125)

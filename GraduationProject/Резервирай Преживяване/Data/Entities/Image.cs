@@ -9,6 +9,6 @@ namespace Резервирай_Преживяване.Data.Entities
         [Required]
         public string? Url { get; set; }
         public Guid RoomId { get; set; }
-        public Room Room { get; set; }
+        public Room? Room { get; set; }
     }
 }

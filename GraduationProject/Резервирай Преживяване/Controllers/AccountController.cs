@@ -8,17 +8,19 @@ namespace Резервирай_Преживяване.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(RoleManager<IdentityRole> roleManager, UserManager<User> userManager, SignInManager<User> signInManager)
         {
+            this.roleManager = roleManager;
             this.userManager = userManager;
             this.signInManager = signInManager;
         }
 
         [HttpGet]
-        public async Task<IActionResult> Register()
+        public IActionResult Register()
         {
             var model = new RegisterViewModel();
             return View(model);
@@ -51,7 +53,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Login()
+        public IActionResult Login()
         {
             var model = new LoginViewModel();
             return View(model);
@@ -80,6 +82,45 @@ namespace Резервирай_Преживяване.Controllers
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> UserProfile()
+        {
+            var user = await userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                return View(user);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        private void Errors(IdentityResult result)
+        {
+            foreach (var error in result.Errors)
+                ModelState.AddModelError("", error.Description);
+        }
+
+        public async Task<IActionResult> CreateRoles()
+        {
+            await roleManager.CreateAsync(new IdentityRole("Administrator"));
+            await roleManager.CreateAsync(new IdentityRole("User"));
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        public async Task<IActionResult> AddRoles()
+        {
+            string username1 = "MeetYou";
+            string username2 = "George";
+
+            var user1 = await userManager.FindByNameAsync(username1);
+            var user2 = await userManager.FindByNameAsync(username2);
+
+            await userManager.AddToRoleAsync(user1, "Administrator");
+            await userManager.AddToRoleAsync(user2, "User");
+
             return RedirectToAction("Index", "Home");
         }
     }
