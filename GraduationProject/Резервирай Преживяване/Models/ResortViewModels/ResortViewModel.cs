@@ -13,5 +13,6 @@ namespace Резервирай_Преживяване.Models.ResortViewModels
         public string? Description { get; set; }
         public string? CityName { get; set; }
         public HashSet<Room> Rooms { get; set; } = new HashSet<Room>();
+        public Facility? Facility { get; set; }
     }
 }

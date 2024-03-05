@@ -10,6 +10,7 @@ namespace Резервирай_Преживяване.Data.Entities
         [Required]
         public string? Name { get; set; }
         [StringLength(1)]
+        [Required]
         public string? Stars { get; set; }
         [Required]
         public string? Type { get; set; }
@@ -20,6 +21,7 @@ namespace Резервирай_Преживяване.Data.Entities
         [Required]
         public Guid CityId { get; set; }
         public City? City { get; set; }
+        public Facility? Facility { get; set; }
         public HashSet<Room> Rooms { get; set; } = new HashSet<Room>();
     }
 }

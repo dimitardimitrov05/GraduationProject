@@ -125,394 +125,445 @@ namespace Резервирай_Преживяване.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("512afd40-544c-4581-99fc-3eddf94f761f"),
+                            Id = new Guid("5b9bc29e-dd91-41bc-90ae-6310136a2b6f"),
                             Name = "Бургас",
                             Postcode = "8000"
                         },
                         new
                         {
-                            Id = new Guid("759022d2-7bc9-4f7f-a35d-b56d727f38f8"),
+                            Id = new Guid("4ae83a65-17a4-4577-94d8-44c6e702c624"),
                             Name = "Варна",
                             Postcode = "9000"
                         },
                         new
                         {
-                            Id = new Guid("2b9b5881-be24-470d-85f1-3427fd483117"),
+                            Id = new Guid("2ae578f3-8491-4b7c-8160-114fa15905df"),
                             Name = "Силистра",
                             Postcode = "7500"
                         },
                         new
                         {
-                            Id = new Guid("ac89737c-8605-4959-94f4-84b8efbfe182"),
+                            Id = new Guid("a0a45b4c-c1b8-4e94-a8de-181c4bdfb2f8"),
                             Name = "Търговище",
                             Postcode = "7700"
                         },
                         new
                         {
-                            Id = new Guid("406772c8-da5d-4940-bfa2-c40d3cd610ff"),
+                            Id = new Guid("eb5a75bf-6652-47ee-8d63-3f8236bbaaca"),
                             Name = "Ловеч",
                             Postcode = "5500"
                         },
                         new
                         {
-                            Id = new Guid("7ce66dd6-d142-455e-828e-41c85497bdba"),
+                            Id = new Guid("2a7db128-7c90-42c1-b84e-fe83fdc5b31d"),
                             Name = "Кърджали",
                             Postcode = "6600"
                         },
                         new
                         {
-                            Id = new Guid("536a7a9f-8079-406d-b701-ab86de6b6294"),
+                            Id = new Guid("5564d472-57ac-47eb-89ae-1974b01ab19a"),
                             Name = "Пловдив",
                             Postcode = "4000"
                         },
                         new
                         {
-                            Id = new Guid("1923e30c-c65f-41cc-93eb-69ed8ab54e47"),
+                            Id = new Guid("f7ca3216-839b-4b38-95a7-f8c682cce095"),
                             Name = "Добрич",
                             Postcode = "9300"
                         },
                         new
                         {
-                            Id = new Guid("db30093e-b3ba-4d21-af2c-21d64874191a"),
+                            Id = new Guid("af650f80-c8ba-4c2a-9c3d-10e7f4f00d03"),
                             Name = "София",
                             Postcode = "1000"
                         },
                         new
                         {
-                            Id = new Guid("78a284d7-7fb7-41a3-a7cd-df16eb453f04"),
+                            Id = new Guid("4b658dec-69f0-4782-a8ff-d3a552e65f94"),
                             Name = "Благоевград",
                             Postcode = "2700"
                         },
                         new
                         {
-                            Id = new Guid("79086bb5-8549-46d5-8635-ab165a71667f"),
+                            Id = new Guid("a4ebdb24-9aeb-41d9-a91d-bd1199eacd9e"),
                             Name = "Пазарджик",
                             Postcode = "4400"
                         },
                         new
                         {
-                            Id = new Guid("46bab13c-7c8f-44f6-bfec-41120280bedf"),
+                            Id = new Guid("ba1d4e11-c8c0-4ed5-884a-98e07b8b476b"),
                             Name = "Перник",
                             Postcode = "2300"
                         },
                         new
                         {
-                            Id = new Guid("07ddae12-18e7-453c-99df-29d1e940af64"),
+                            Id = new Guid("532f2c58-0b50-4dd0-afce-43ea8f68495a"),
                             Name = "Плевен",
                             Postcode = "5800"
                         },
                         new
                         {
-                            Id = new Guid("847044ed-a751-46cf-8666-9a8b14ad3dc4"),
+                            Id = new Guid("82afabe5-80a5-42e4-a515-771ad102ceb8"),
                             Name = "Видин",
                             Postcode = "3700"
                         },
                         new
                         {
-                            Id = new Guid("cdcb0780-f0c1-423e-93a6-fb0cdb5f898a"),
+                            Id = new Guid("a0ff2b6a-b818-4730-852c-a1fae4f7e3ca"),
                             Name = "Монтана",
                             Postcode = "3400"
                         },
                         new
                         {
-                            Id = new Guid("f7d5fde7-8235-4b9b-815a-2fb8ec597c43"),
+                            Id = new Guid("a8da022b-c68a-4131-b96f-837f45de04a7"),
                             Name = "Кюстендил",
                             Postcode = "2500"
                         },
                         new
                         {
-                            Id = new Guid("b6a1cbc4-7d13-4986-9879-c18d6fb89827"),
+                            Id = new Guid("b2d8b92d-7fa1-41f3-b403-76c8d4ffd140"),
                             Name = "Ямбол",
                             Postcode = "8600"
                         },
                         new
                         {
-                            Id = new Guid("0fd4d743-fc6a-4455-b371-f6c0d1d1862a"),
+                            Id = new Guid("f2ae187d-bc51-48fc-85e0-ea4955dc3a56"),
                             Name = "Русе",
                             Postcode = "7000"
                         },
                         new
                         {
-                            Id = new Guid("4eeb0d36-8732-479f-9069-aec33f95191d"),
+                            Id = new Guid("5c94c9f1-cc6a-428b-99f1-0369510d463e"),
                             Name = "Враца",
                             Postcode = "3000"
                         },
                         new
                         {
-                            Id = new Guid("41933b7a-1b88-4b68-bc77-19342375366c"),
+                            Id = new Guid("18ff4ca1-bf93-41c7-b4d4-2137afbc92ee"),
                             Name = "Велико Търново",
                             Postcode = "5000"
                         },
                         new
                         {
-                            Id = new Guid("2778694b-f992-4228-b2db-7307f3bc80fe"),
+                            Id = new Guid("9af0f7b7-d3d9-4beb-beda-bfc99ef9ff43"),
                             Name = "Шумен",
                             Postcode = "9700"
                         },
                         new
                         {
-                            Id = new Guid("6b84c356-7569-4be2-befc-b1867646d898"),
+                            Id = new Guid("e33adc42-c19e-4cef-8795-32601062f06d"),
                             Name = "Габрово",
                             Postcode = "5300"
                         },
                         new
                         {
-                            Id = new Guid("e6c67e1c-f640-4101-beff-45dd3d9d77ba"),
+                            Id = new Guid("09c77998-25f4-4f4f-855e-f215f31b5880"),
                             Name = "Разград",
                             Postcode = "7200"
                         },
                         new
                         {
-                            Id = new Guid("d5cb58f3-fb50-4819-b5c5-c1a988cb9ce9"),
+                            Id = new Guid("80675a56-4212-425f-bc2c-4986871549ae"),
                             Name = "Сливен",
                             Postcode = "8800"
                         },
                         new
                         {
-                            Id = new Guid("81bf0dcb-1d9b-4e7f-ab4c-61d362da401e"),
+                            Id = new Guid("cb78b846-a0c3-43f3-ac39-ecc25c92bafe"),
                             Name = "Смолян",
                             Postcode = "4700"
                         },
                         new
                         {
-                            Id = new Guid("a783800c-7dae-4e13-a7da-89d8a45cc71f"),
+                            Id = new Guid("e13c2d1a-b03a-4dd3-bed9-d3160194d871"),
                             Name = "Стара Загора",
                             Postcode = "6000"
                         },
                         new
                         {
-                            Id = new Guid("c84b782e-9b76-4d88-a380-3084452cf4ee"),
+                            Id = new Guid("4ef1dcf6-cdd6-4cae-bb33-42c5a6f734ef"),
                             Name = "Хасково",
                             Postcode = "6300"
                         },
                         new
                         {
-                            Id = new Guid("bbf85e3b-e2a5-46d3-a592-54077e0a0b94"),
+                            Id = new Guid("490fa1ba-5897-4c62-956b-c86ff971ab5a"),
                             Name = "Банско",
                             Postcode = "2770"
                         },
                         new
                         {
-                            Id = new Guid("ad4bec00-69c0-4a99-bd83-4f2b76e9a82a"),
+                            Id = new Guid("abfca343-73c5-4bc4-bc1e-902afe12c6e1"),
                             Name = "Мелник",
                             Postcode = "2820"
                         },
                         new
                         {
-                            Id = new Guid("7ddf7dac-4838-4955-9daa-9c115c225ab1"),
+                            Id = new Guid("33b7d571-24d6-4236-ab48-21dd2425d343"),
                             Name = "Сандански",
                             Postcode = "2800"
                         },
                         new
                         {
-                            Id = new Guid("f2792310-f1bd-4f5a-983e-a79cbc1e81bf"),
+                            Id = new Guid("7ba3675f-fc9b-4859-9e7a-729860906ef6"),
                             Name = "Симитли",
                             Postcode = "2730"
                         },
                         new
                         {
-                            Id = new Guid("73ae30f4-3946-4e91-82c5-788a624189c6"),
+                            Id = new Guid("c18d9fe5-222c-48b4-91fa-e6d73e781e18"),
                             Name = "Айтос",
                             Postcode = "8500"
                         },
                         new
                         {
-                            Id = new Guid("b570ede9-c680-4de0-bb31-4e9d6b83422f"),
+                            Id = new Guid("733981c7-bb24-4894-bae1-2d4dd2913322"),
                             Name = "Ахелой",
                             Postcode = "8217"
                         },
                         new
                         {
-                            Id = new Guid("a910ff89-231c-4d33-bcbb-beba8b1468e1"),
+                            Id = new Guid("55d782e4-c03e-4d0a-90ce-9a462fa4f41a"),
                             Name = "Балчик",
                             Postcode = "9600"
                         },
                         new
                         {
-                            Id = new Guid("858ed065-dee8-4763-b255-b1a8586877a9"),
+                            Id = new Guid("4c60e3ab-5e3e-45a0-8c2b-38b4056f8573"),
                             Name = "Банкя",
                             Postcode = "1320"
                         },
                         new
                         {
-                            Id = new Guid("0d5eeee2-5294-483d-b685-9763e7d5a234"),
+                            Id = new Guid("dbdc4b23-e7dc-4487-9f71-6b6411710f54"),
                             Name = "Баня",
                             Postcode = "4360"
                         },
                         new
                         {
-                            Id = new Guid("d7bbab7e-7009-4a23-8dc5-36be57d1bbc2"),
+                            Id = new Guid("91aa7910-1422-488f-90c5-6e305a96f4f2"),
                             Name = "Белоградчик",
                             Postcode = "3900"
                         },
                         new
                         {
-                            Id = new Guid("515893ee-afd0-41a2-84b1-3bca6fb9b9bb"),
+                            Id = new Guid("2421f970-218f-479b-978d-9e88366b8e9b"),
                             Name = "Бяла",
                             Postcode = "9101"
                         },
                         new
                         {
-                            Id = new Guid("58501a7b-720e-4e30-a0fb-40bfd98e618d"),
+                            Id = new Guid("4cb51ded-e6d0-42b3-98c6-676d8de4f475"),
                             Name = "Велинград",
                             Postcode = "4600"
                         },
                         new
                         {
-                            Id = new Guid("46c7048d-109a-4879-ac18-f6e3302a8f54"),
+                            Id = new Guid("f61f0c9f-9955-44cb-aa52-08b49e1d38e9"),
                             Name = "Доспат",
                             Postcode = "4831"
                         },
                         new
                         {
-                            Id = new Guid("a49513bb-9164-4a12-8407-6823553e940d"),
+                            Id = new Guid("d55f6e7e-f851-446e-9916-69c578d4c8ec"),
                             Name = "Дряново",
                             Postcode = "5370"
                         },
                         new
                         {
-                            Id = new Guid("ee115ea7-51a4-4caf-a06a-f9eaf63e13b6"),
+                            Id = new Guid("315f22f8-40a3-48b2-be93-0d3482485e49"),
                             Name = "Елхово",
                             Postcode = "8700"
                         },
                         new
                         {
-                            Id = new Guid("7f15419e-4889-4408-b27d-df61cd01bc28"),
+                            Id = new Guid("66d3467f-b3f1-4e77-9573-2dda8e3d606a"),
                             Name = "Казанлък",
                             Postcode = "6100"
                         },
                         new
                         {
-                            Id = new Guid("e1c1a12a-0327-415f-a5fe-5690b60c0411"),
+                            Id = new Guid("734b45fe-a31e-4f85-8f46-0156095609d9"),
                             Name = "Калофер",
                             Postcode = "4370"
                         },
                         new
                         {
-                            Id = new Guid("9f107d27-8249-4abe-b730-af87996b80d7"),
+                            Id = new Guid("2bfb43fc-b0b6-44f2-93a6-c6ae5882c24b"),
                             Name = "Карлово",
                             Postcode = "4300"
                         },
                         new
                         {
-                            Id = new Guid("5badf7b0-a39f-4e20-b94f-66e7a17d158e"),
+                            Id = new Guid("6941b9a2-39dd-4f83-8d8c-144cb0feb393"),
                             Name = "Китен",
                             Postcode = "8183"
                         },
                         new
                         {
-                            Id = new Guid("fd445aa0-94f0-4a9f-90b8-597dfb526312"),
+                            Id = new Guid("b05bc648-73cc-4b18-91ba-4a435f7f3080"),
                             Name = "Клисура",
                             Postcode = "4341"
                         },
                         new
                         {
-                            Id = new Guid("72a990e7-191c-4318-ac79-7935f45e82e9"),
+                            Id = new Guid("9a68ff87-04c0-4dac-a39c-e8759f5d127a"),
                             Name = "Копривщица",
                             Postcode = "2077"
                         },
                         new
                         {
-                            Id = new Guid("46827fff-2f81-4dbb-8d4b-83aba1513f34"),
+                            Id = new Guid("3461f601-8778-46ea-9582-fdac3b66df9c"),
                             Name = "Лом",
                             Postcode = "3600"
                         },
                         new
                         {
-                            Id = new Guid("6209b622-11b9-4bdf-b8d0-bc80d852e6c6"),
+                            Id = new Guid("43f72542-bcea-4b32-9182-d8997f842665"),
                             Name = "Несебър",
                             Postcode = "8230"
                         },
                         new
                         {
-                            Id = new Guid("aa097bf3-dc41-46d8-bcc9-f2f7ee9c82b3"),
+                            Id = new Guid("daf095b3-fadb-4d04-a6a4-5bc30d16ca6b"),
                             Name = "Нова Загора",
                             Postcode = "8900"
                         },
                         new
                         {
-                            Id = new Guid("eac1252b-85ee-4a23-a635-14591c1fffce"),
+                            Id = new Guid("75be5e66-52a5-4f1a-9839-a74d2fece0ec"),
                             Name = "Обзор",
                             Postcode = "8250"
                         },
                         new
                         {
-                            Id = new Guid("f91d4417-344d-4096-92c0-77b6227f495d"),
+                            Id = new Guid("efca9570-a0a5-4e02-aafc-3d118b0be0ac"),
                             Name = "Павел Баня",
                             Postcode = "6155"
                         },
                         new
                         {
-                            Id = new Guid("8f0bb610-3725-472a-b4a9-dad9f7a68d64"),
+                            Id = new Guid("089cee59-8d4f-423e-9a78-73ea848c2f15"),
                             Name = "Панагюрище",
                             Postcode = "4500"
                         },
                         new
                         {
-                            Id = new Guid("c54d4ae8-65a5-4a4a-ba4d-714497f1c628"),
+                            Id = new Guid("af6ef6c7-ade0-4181-8ab2-c62eb668e542"),
                             Name = "Петрич",
                             Postcode = "2850"
                         },
                         new
                         {
-                            Id = new Guid("5fb103af-f786-4f6b-93de-34935bf07cca"),
+                            Id = new Guid("77e0e509-1c7f-4aeb-b8c1-76ac458c5a59"),
                             Name = "Плиска",
                             Postcode = "9920"
                         },
                         new
                         {
-                            Id = new Guid("7afc8e30-f08d-4775-a87b-a76894c1cbfb"),
+                            Id = new Guid("51e415ee-5fcf-4172-a0dd-d66c6294cbbd"),
                             Name = "Самоков",
                             Postcode = "2000"
                         },
                         new
                         {
-                            Id = new Guid("6c969bba-394a-4239-a272-8992ab9b5acf"),
+                            Id = new Guid("d6416941-a431-4dd1-b07a-fd6e49bfa396"),
                             Name = "Сапарева баня",
                             Postcode = "2650"
                         },
                         new
                         {
-                            Id = new Guid("9429830e-ccbd-4451-8aaf-3fbd460e3ecf"),
+                            Id = new Guid("8ed045fe-7095-4edf-912b-1348cc019c1f"),
                             Name = "Свети власт",
                             Postcode = "8256"
                         },
                         new
                         {
-                            Id = new Guid("1cb68e36-53c4-45dd-8f13-5c90eca75b83"),
+                            Id = new Guid("29edff2f-b90c-416d-bc1d-76d59f0e4dd9"),
                             Name = "Созопол",
                             Postcode = "8130"
                         },
                         new
                         {
-                            Id = new Guid("9a975b42-cca2-41f3-a43b-9da1034c8af6"),
+                            Id = new Guid("7a4aabc4-f512-4322-b05b-4f3b0e0f131b"),
                             Name = "Троян",
                             Postcode = "5600"
                         },
                         new
                         {
-                            Id = new Guid("f425a0fb-b1fb-4e0f-aadd-8aeef73a799c"),
+                            Id = new Guid("fdf7c7e9-7bfd-4e25-b273-a66793db40f4"),
                             Name = "Трявна",
                             Postcode = "5350"
                         },
                         new
                         {
-                            Id = new Guid("8f5aa6b7-b09e-4bbd-8c86-2b026a3632ba"),
+                            Id = new Guid("8be05989-3cbf-4105-a6dd-8a81c9f83276"),
                             Name = "Хисаря",
                             Postcode = "4180"
                         },
                         new
                         {
-                            Id = new Guid("521680b7-5bf4-46f6-a95a-d6df64d0ce57"),
+                            Id = new Guid("943fe0a0-bb03-471c-9529-68417c68f1e8"),
                             Name = "Боровец",
                             Postcode = "2010"
                         },
                         new
                         {
-                            Id = new Guid("694c17d2-6917-49cb-bf5b-217d4ecc3815"),
+                            Id = new Guid("3d878ab3-b630-4a58-b847-8e002040a6c5"),
                             Name = "Пампорово",
                             Postcode = "4870"
+                        },
+                        new
+                        {
+                            Id = new Guid("73fb50f7-4e06-4e00-a6b2-32869dc36f11"),
+                            Name = "Овощник",
+                            Postcode = "6138"
                         });
+                });
+
+            modelBuilder.Entity("Резервирай_Преживяване.Data.Entities.Facility", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Gym")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Parking")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Pool")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<Guid>("ResortId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<bool?>("Restaurant")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("RoomService")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("SpaCenter")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("Wifi")
+                        .IsRequired()
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ResortId")
+                        .IsUnique();
+
+                    b.ToTable("Facilities");
                 });
 
             modelBuilder.Entity("Резервирай_Преживяване.Data.Entities.Image", b =>
@@ -824,6 +875,17 @@ namespace Резервирай_Преживяване.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Резервирай_Преживяване.Data.Entities.Facility", b =>
+                {
+                    b.HasOne("Резервирай_Преживяване.Data.Entities.Resort", "Resort")
+                        .WithOne("Facility")
+                        .HasForeignKey("Резервирай_Преживяване.Data.Entities.Facility", "ResortId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Resort");
+                });
+
             modelBuilder.Entity("Резервирай_Преживяване.Data.Entities.Image", b =>
                 {
                     b.HasOne("Резервирай_Преживяване.Data.Entities.Room", "Room")
@@ -978,6 +1040,8 @@ namespace Резервирай_Преживяване.Migrations
 
             modelBuilder.Entity("Резервирай_Преживяване.Data.Entities.Resort", b =>
                 {
+                    b.Navigation("Facility");
+
                     b.Navigation("Rooms");
                 });
 

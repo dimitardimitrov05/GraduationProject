@@ -17,6 +17,7 @@ namespace Резервирай_Преживяване.Data
         public DbSet<Landmark> Landmarks { get; set; }
         public DbSet<Room> Rooms { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<Facility> Facilities { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -43,6 +44,11 @@ namespace Резервирай_Преживяване.Data
                 .HasMany(x => x.Rooms)
                 .WithOne(x => x.Resort)
                 .HasForeignKey(x => x.ResortId);
+
+            builder.Entity<Resort>()
+                .HasOne(x => x.Facility)
+                .WithOne(x => x.Resort)
+                .HasForeignKey<Facility>(x => x.ResortId);
 
             builder.Entity<RoomReservation>()
                 .HasKey(x => new { x.ReservationId, x.RoomId });
@@ -465,6 +471,12 @@ namespace Резервирай_Преживяване.Data
                     Id = Guid.NewGuid(),
                     Name = "Пампорово",
                     Postcode = "4870"
+                },
+                new City()
+                {
+                    Id = Guid.NewGuid(),
+                    Name = "Овощник",
+                    Postcode = "6138"
                 });
         }
     }

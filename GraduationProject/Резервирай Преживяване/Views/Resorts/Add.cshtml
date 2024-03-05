@@ -60,6 +60,24 @@
         </div>
 
         <div class="mb-3">
+            <label class="form-label">Удобства: </label><br />
+            <input type="checkbox" value="true" name="Wifi"/>
+            <label class="form-label" style="margin-right: 10px;">Безплатен WiFi</label>
+            <input type="checkbox" value="true" name="Parking" />
+            <label class="form-label" style="margin-right: 10px;">Безплатен паркинг</label>
+            <input type="checkbox" value="true" name="Pool" />
+            <label class="form-label" style="margin-right: 10px;">Басейн</label>
+            <input type="checkbox" value="true" name="Restaurant" />
+            <label class="form-label" style="margin-right: 10px;">Ресторант</label>
+            <input type="checkbox" value="true" name="Gym" />
+            <label class="form-label" style="margin-right: 10px;">Фитнес</label>
+            <input type="checkbox" value="true" name="SpaCenter" />
+            <label class="form-label" style="margin-right: 10px;">Спа</label>
+            <input type="checkbox" value="true" name="RoomService" />
+            <label class="form-label">Румсървис</label>
+        </div>
+
+        <div class="mb-3">
             <label class="form-label">Локация: </label>
             <select class="form-select" asp-for="CityId" asp-items="@ViewBag.CityId">
                 <option value="" disabled selected>Избери град</option>

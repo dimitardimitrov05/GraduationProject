@@ -30,7 +30,22 @@ namespace Резервирай_Преживяване.Services
                 Stars = model.Stars
             };
 
+            var facility = new Facility()
+            {
+                Id = Guid.NewGuid(),
+                Wifi = model.Wifi,
+                Parking = model.Parking,
+                Pool = model.Pool,
+                Restaurant = model.Restaurant,
+                Gym = model.Gym,
+                SpaCenter = model.SpaCenter,
+                RoomService = model.RoomService,
+                ResortId = resort.Id,
+                
+            };
+
             await context.Resorts.AddAsync(resort);
+            await context.Facilities.AddAsync(facility);
             await context.SaveChangesAsync();
         }
 
@@ -39,7 +54,7 @@ namespace Резервирай_Преживяване.Services
             var location = model.FilterCityName;
             var stars = model.FilterStarResort;
             var prices = model?.PricePerNight?.Split('-').ToList();
-            var resorts = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).ToListAsync();
+            var resorts = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).ToListAsync();
             if (location != null)
             {
                 resorts = resorts.Where(x => x.CityId.ToString() == location).ToList();
@@ -118,27 +133,27 @@ namespace Резервирай_Преживяване.Services
 
         public async Task<List<Resort>> GetAllGuesthousesAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Where(x => x.Type == "Къща за гости").ToListAsync();
+            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Къща за гости").ToListAsync();
         }
 
         public async Task<List<Resort>> GetAllHotelsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Where(x => x.Type == "Хотел").ToListAsync();
+            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Хотел").ToListAsync();
         }
 
         public async Task<List<Resort>> GetAllResortsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).ToListAsync();
+            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).ToListAsync();
         }
 
         public async Task<List<Resort>> GetAllResortsOrderedByStarsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).OrderByDescending(x => x.Stars).ToListAsync();
+            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).OrderByDescending(x => x.Stars).ToListAsync();
         }
 
         public async Task<ResortViewModel> InfoAsync(Guid id)
         {
-            var resort = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).FirstOrDefaultAsync(x => x.Id == id);
+            var resort = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
             if (resort == null)
             {
                 return null;
@@ -152,6 +167,7 @@ namespace Резервирай_Преживяване.Services
                 Description = resort.Description,
                 CityName = resort.City?.Name,
                 Rooms = resort.Rooms,
+                Facility = resort.Facility,
             };
             return model;
         }

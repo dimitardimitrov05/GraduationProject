@@ -38,6 +38,7 @@ namespace Резервирай_Преживяване
             });
 
             builder.Services.AddScoped<IResortService, ResortService>();
+            builder.Services.AddScoped<IRoomService, RoomService>();
 
             var app = builder.Build();
 
