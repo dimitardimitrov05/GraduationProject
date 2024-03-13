@@ -5,6 +5,7 @@ namespace Резервирай_Преживяване.Models.ResortViewModels
 {
     public class ResortViewModel
     {
+        public Guid ResortId { get; set; }
         public string? Name { get; set; }
         [StringLength(1)]
         public string? Stars { get; set; }

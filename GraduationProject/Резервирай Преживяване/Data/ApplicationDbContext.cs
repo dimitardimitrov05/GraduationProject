@@ -36,10 +36,6 @@ namespace Резервирай_Преживяване.Data
                 .WithOne(x => x.City)
                 .HasForeignKey(x => x.CityId);
 
-            builder.Entity<City>()
-                .HasIndex(x => x.Postcode)
-                .IsUnique();
-
             builder.Entity<Resort>()
                 .HasMany(x => x.Rooms)
                 .WithOne(x => x.Resort)
@@ -86,397 +82,397 @@ namespace Резервирай_Преживяване.Data
                 {
                     Id = Guid.NewGuid(),
                     Name = "Бургас",
-                    Postcode = "8000"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Варна",
-                    Postcode = "9000"
+                    Region = "Варна"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Силистра",
-                    Postcode = "7500"
+                    Region = "Силистра"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Търговище",
-                    Postcode = "7700"
+                    Region = "Търговище"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Ловеч",
-                    Postcode = "5500"
+                    Region = "Ловеч"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Кърджали",
-                    Postcode = "6600"
+                    Region = "Кърджали"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Пловдив",
-                    Postcode = "4000"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Добрич",
-                    Postcode = "9300"
+                    Region = "Добрич"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "София",
-                    Postcode = "1000"
+                    Region = "София"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Благоевград",
-                    Postcode = "2700"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Пазарджик",
-                    Postcode = "4400"
+                    Region = "Пазарджик"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Перник",
-                    Postcode = "2300"
+                    Region = "Перник"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Плевен",
-                    Postcode = "5800"
+                    Region = "Плевен"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Видин",
-                    Postcode = "3700"
+                    Region = "Видин"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Монтана",
-                    Postcode = "3400"
+                    Region = "Монтана"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Кюстендил",
-                    Postcode = "2500"
+                    Region = "2500"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Ямбол",
-                    Postcode = "8600"
+                    Region = "Ямбол"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Русе",
-                    Postcode = "7000"
+                    Region = "Русе"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Враца",
-                    Postcode = "3000"
+                    Region = "Враца"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Велико Търново",
-                    Postcode = "5000"
+                    Region = "Велико Търново"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Шумен",
-                    Postcode = "9700"
+                    Region = "Шумен"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Габрово",
-                    Postcode = "5300"
+                    Region = "Габрово"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Разград",
-                    Postcode = "7200"
+                    Region = "Разград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Сливен",
-                    Postcode = "8800"
+                    Region = "Сливен"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Смолян",
-                    Postcode = "4700"
+                    Region = "Смолян"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Стара Загора",
-                    Postcode = "6000"
+                    Region = "Стара Загора"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Хасково",
-                    Postcode = "6300"
+                    Region = "Хасково"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Банско",
-                    Postcode = "2770"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Мелник",
-                    Postcode = "2820"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Сандански",
-                    Postcode = "2800"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Симитли",
-                    Postcode = "2730"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Айтос",
-                    Postcode = "8500"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Ахелой",
-                    Postcode = "8217"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Балчик",
-                    Postcode = "9600"
+                    Region = "Добрич"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Банкя",
-                    Postcode = "1320"
+                    Region = "София"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Баня",
-                    Postcode = "4360"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Белоградчик",
-                    Postcode = "3900"
+                    Region = "Видин"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Бяла",
-                    Postcode = "9101"
+                    Region = "Варна"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Велинград",
-                    Postcode = "4600"
+                    Region = "Пазарджик"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Доспат",
-                    Postcode = "4831"
+                    Region = "Смолян"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Дряново",
-                    Postcode = "5370"
+                    Region = "Габрово"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Елхово",
-                    Postcode = "8700"
+                    Region = "Ямбол"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Казанлък",
-                    Postcode = "6100"
+                    Region = "Стара Загора"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Калофер",
-                    Postcode = "4370"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Карлово",
-                    Postcode = "4300"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Китен",
-                    Postcode = "8183"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Клисура",
-                    Postcode = "4341"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Копривщица",
-                    Postcode = "2077"
+                    Region = "София"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Лом",
-                    Postcode = "3600"
+                    Region = "Монтана"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Несебър",
-                    Postcode = "8230"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Нова Загора",
-                    Postcode = "8900"
+                    Region = "Сливен"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Обзор",
-                    Postcode = "8250"
+                    Region = "Варна"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Павел Баня",
-                    Postcode = "6155"
+                    Region = "Стара Загора"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Панагюрище",
-                    Postcode = "4500"
+                    Region = "Пазарджик"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Петрич",
-                    Postcode = "2850"
+                    Region = "Благоевград"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Плиска",
-                    Postcode = "9920"
+                    Region = "Шумен"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Самоков",
-                    Postcode = "2000"
+                    Region = "София"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Сапарева баня",
-                    Postcode = "2650"
+                    Region = "Кюстендил"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
-                    Name = "Свети власт",
-                    Postcode = "8256"
+                    Name = "Свети влас",
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Созопол",
-                    Postcode = "8130"
+                    Region = "Бургас"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Троян",
-                    Postcode = "5600"
+                    Region = "Ловеч"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Трявна",
-                    Postcode = "5350"
+                    Region = "Габрово"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Хисаря",
-                    Postcode = "4180"
+                    Region = "Пловдив"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Боровец",
-                    Postcode = "2010"
+                    Region = "София"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Пампорово",
-                    Postcode = "4870"
+                    Region = "Смолян"
                 },
                 new City()
                 {
                     Id = Guid.NewGuid(),
                     Name = "Овощник",
-                    Postcode = "6138"
+                    Region = "Стара Загора"
                 });
         }
     }

@@ -15,9 +15,9 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Add()
+        public IActionResult Add(Guid id)
         {
-            ViewBag.ResortId = new SelectList(await service.GetAllResortsAsync(), "Id", "Name");
+            ViewBag.ResortId = id;
             return View();
         }
 
@@ -25,7 +25,17 @@ namespace Резервирай_Преживяване.Controllers
         public async Task<IActionResult> Add(AddRoomViewModel model)
         {
             await service.AddAsync(model);
-            return RedirectToAction("Info", model.ResortId);
+
+            return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
+        }
+
+        //maikatidaeba
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            Guid? resortId = await service.GetResortIdByGivenRoomId(id);
+            await service.DeleteRoomAsync(id);
+
+            return RedirectToAction("Info", "Resorts", new { id = resortId });
         }
     }
 }

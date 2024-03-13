@@ -30,12 +30,32 @@ namespace Резервирай_Преживяване.Services
             };
 
             await context.Rooms.AddAsync(room);
+
+            foreach (var item in model.Images)
+            {
+                var image = new Image()
+                {
+                    Id = Guid.NewGuid(),
+                    Url = item.ImageUrl,
+                    RoomId = room.Id,
+                };
+
+                room.Images.Add(image);
+            }
+
             await context.SaveChangesAsync();
         }
 
-        public async Task<List<Resort>> GetAllResortsAsync()
+        public async Task DeleteRoomAsync(Guid id)
         {
-            return await context.Resorts.ToListAsync();
+            var room = await context.Rooms.FirstOrDefaultAsync(x => x.Id == id);
+            context.Rooms.Remove(room!);
+            await context.SaveChangesAsync();
+        }
+
+        public async Task<Guid?> GetResortIdByGivenRoomId(Guid id)
+        {
+            return await context.Rooms.Where(x => x.Id == id).Select(x => x.ResortId).FirstOrDefaultAsync(); ;
         }
     }
 }

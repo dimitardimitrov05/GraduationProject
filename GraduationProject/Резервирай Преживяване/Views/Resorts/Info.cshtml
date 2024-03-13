@@ -15,6 +15,12 @@
     <div class="row">
         <div class="col-8" style="padding-left: 100px">
             <h3 style="padding-left: 22px">@Model.Name</h3>
+            <div style="padding-left: 22px">
+                @for (int i = 0; i < int.Parse(Model.Stars!); i++)
+                {
+                    <i class="bi bi-star-fill" style="color: #FFBF00"></i>
+                }
+            </div>
             <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
                 <div class="carousel-inner container">
                     <div class="carousel-item active">
@@ -24,14 +30,13 @@
                     {
                         @foreach (var img in room.Images)
                         {
-                            <div class="carousel-item active">
+                            <div class="carousel-item">
                                 <img class="w-100" style="height: 500px;" src="@img.Url" alt="Image">
                             </div>
                         }
                     }
                 </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel"
-                        data-bs-slide="prev">
+                <button class="carousel-control-prev" type="button" data-bs-target="#header-carousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Previous</span>
                 </button>
@@ -73,19 +78,102 @@
                     }
                 </div>
 
-                <div class="col-2">
+                <div class="col-2" style="margin-left: -30px">
                     @if (Model.Facility?.Parking ?? false)
                     {
-                        <i class="bi bi-parking" style="color: #FEA116; font-size: 20px"></i>
+                        <i class="fa-solid fa-square-parking" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Безплатен Паркинг</label>
+                    }
+                </div>
+
+                <div class="col-1" style="margin-right: 20px">
+                    @if (Model.Facility?.Pool ?? false)
+                    {
+                        <i class="fa-solid fa-person-swimming" style="color: #FEA116; font-size: 20px"></i>
+                        <label class="form-label" style="font-size: 20px">Басейн</label>
+                    }
+                </div>
+
+                <div class="col-2">
+                    @if (Model.Facility?.Restaurant ?? false)
+                    {
+                        <i class="fa-solid fa-utensils" style="color: #FEA116; font-size: 20px"></i>
+                        <label class="form-label" style="font-size: 20px">Ресторант</label>
+                    }
+                </div>
+
+                <div class="col-2" style="margin-left: -90px">
+                    @if (Model.Facility?.Gym ?? false)
+                    {
+                        <i class="fa-solid fa-dumbbell" style="color: #FEA116; font-size: 20px"></i>
+                        <label class="form-label" style="font-size: 20px">Финтес</label>
+                    }
+                </div>
+
+                <div class="col-2" style="margin-left: -100px">
+                    @if (Model.Facility?.SpaCenter ?? false)
+                    {
+                        <i class="fa-solid fa-spa" style="color: #FEA116; font-size: 20px"></i>
+                        <label class="form-label" style="font-size: 20px">Спа</label>
+                    }
+                </div>
+
+                <div class="col-2" style="margin-left: -140px">
+                    @if (Model.Facility?.SpaCenter ?? false)
+                    {
+                        <i class="fa-solid fa-spa" style="color: #FEA116; font-size: 20px"></i>
+                        <label class="form-label" style="font-size: 20px">Румсървис</label>
                     }
                 </div>
             </div>
         </div>
-        <div class="mt-4" style="padding-left: 115px">
+        <div class="mt-4" style="padding-left: 115px; padding-right: 170px">
             <h3>Направи резервация</h3>
+            @if (User.IsInRole("Administrator"))
+            {
+                <button class="btn btn-primary" asp-controller="Rooms" asp-action="Add" asp-route-id="@Model.ResortId">Добави стая</button>
+            }
             <table class="table">
-
+                <thead>
+                    <tr>
+                        <th style="width: 200px">Тип спаи</th>
+                        <th style="width: 110px">Брой гости</th>
+                        <th style="width: 700px">Описание</th>
+                        <th style="width: 120px">Цена на нощувка</th>
+                        <th style="width: 100px">Брой стаи</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var room in Model.Rooms)
+                    {
+                        <tr>
+                            <td>@room.Type</td>
+                            <td>
+                                @for (int i = 0; i < int.Parse(room.Capacity!); i++)
+                                {
+                                    <i class="bi bi-person-fill"></i>
+                                }
+                            </td>
+                            <td>@room.Description</td>
+                            <td>@room.PricePerNight лв.</td>
+                            <td>
+                                <select class="form-select">
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </td>
+                            @if (User.IsInRole("Administrator"))
+                            {
+                                <td>
+                                    <button asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.Id" class="btn btn-danger" style="font-size: 10px;">Премахни</button>
+                                </td>
+                            }
+                        </tr>
+                    }
+                </tbody>
             </table>
         </div>
     </div>

@@ -109,7 +109,7 @@
                                 </div>
                                 <div class="room">
                                     <button asp-controller="Resorts" asp-action="Info" asp-route-id="@resort?.Id" style="margin-left: 95px; border-radius: 3px;" class="btn btn-dark">Виж още</button>
-                                    <p>@resort?.Rooms.Min(x => x.PricePerNight)</p>
+                                    <p style="font-weight: bold; font-size: 20px">@resort?.Rooms.Min(x => x.PricePerNight)лв</p>
                                 </div>
                             </div>
                         </div>

@@ -153,13 +153,14 @@ namespace Резервирай_Преживяване.Services
 
         public async Task<ResortViewModel> InfoAsync(Guid id)
         {
-            var resort = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
+            var resort = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).ThenInclude(x => x.Images).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
             if (resort == null)
             {
                 return null;
             }
             var model = new ResortViewModel()
             {
+                ResortId = resort.Id,
                 Name = resort.Name,
                 Stars = resort.Stars,
                 Type = resort.Type,

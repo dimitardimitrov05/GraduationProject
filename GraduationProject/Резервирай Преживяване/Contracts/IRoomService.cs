@@ -6,6 +6,7 @@ namespace Резервирай_Преживяване.Contracts
     public interface IRoomService
     {
         Task AddAsync(AddRoomViewModel model);
-        Task<List<Resort>> GetAllResortsAsync();
+        Task DeleteRoomAsync(Guid id);
+        Task<Guid?> GetResortIdByGivenRoomId(Guid id);
     }
 }

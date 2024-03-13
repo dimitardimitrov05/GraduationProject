@@ -1,0 +1,114 @@
+﻿@model Резервирай_Преживяване.Models.RoomViewModels.AddRoomViewModel;
+
+<link href="img/favicon.ico" rel="icon">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+<link href="lib/animate/animate.min.css" rel="stylesheet">
+<link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+<link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<link href="/css/style.css" rel="stylesheet">
+
+<form class="mt-5 mb-5" method="post" action="Add">
+    <div class="container">
+        <h1>Добавяне на стая</h1>
+        <div class="mb-3">
+            <label class="form-label">Вид на стаята:</label><br />
+            <input type="radio" name="Type" value="Двойна стая" />
+            <label class="form-label">Двойна стая</label><br />
+            <input type="radio" name="Type" value="Двойна стая делукс" />
+            <label class="form-label">Двойна стая делукс</label><br />
+            <input type="radio" name="Type" value="Студио" />
+            <label class="form-label">Студио</label><br />
+            <input type="radio" name="Type" value="Апартамент" />
+            <label class="form-label">Апартамент</label>
+        </div>
+
+        <input type="hidden" asp-for="ResortId" value="@ViewBag.ResortId"/>
+
+        <div class="mb-3">
+            <label class="form-label">Капацитет на стаята:</label>
+            <input type="text" class="form-control" asp-for="Capacity" />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Описание: </label><br />
+            <textarea cols="159" rows="5" class="form-control" asp-for="Description"></textarea>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Цена за нощувка:</label>
+            <input type="text" class="form-control" asp-for="PricePerNight"/>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label">Брой на баните в стаята:</label>
+                    <input type="text" class="form-control" asp-for="Bathrooms" />
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="mb-3">
+                    <label class="form-label">Брой на леглата в стаята:</label>
+                    <input type="text" class="form-control" asp-for="Bedrooms" />
+                </div>
+            </div>
+        </div>
+
+        <div class="mb-3">
+            <div id="images">
+                <div class="image">
+                    <div class="mb-3">
+                        <label class="form-label">URl на снимката:</label>
+                        <input type="text" name="Images[0].ImageUrl" class="form-control">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <div class="col-2">
+                <button type="button" id="addImage" class="btn btn-dark">Добави снимка</button>
+            </div>
+            <div class="col-2">
+                <div>
+                    <button type="submit" class="btn btn-primary">Добави стая</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+@section Scripts {
+<script>
+        $(function () {
+            $('#addImage').click(function () {
+                var index = $('.image').length;
+                var newImage = $('<div class="mb-3">' +
+                    '<label class="form-label">URl на снимката:</label>' +
+                    '<input type="text" name="Images[' + index + '].ImageUrl" class="form-control" required>' +
+                    '</div>');
+                $('#images').append(newImage);
+            });
+        });
+</script>
+}
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="lib/wow/wow.min.js"></script>
+<script src="lib/easing/easing.min.js"></script>
+<script src="lib/waypoints/waypoints.min.js"></script>
+<script src="lib/counterup/counterup.min.js"></script>
+<script src="lib/owlcarousel/owl.carousel.min.js"></script>
+<script src="lib/tempusdominus/js/moment.min.js"></script>
+<script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+<script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+<!-- Template Javascript -->
+<script src="js/main.js"></script>
