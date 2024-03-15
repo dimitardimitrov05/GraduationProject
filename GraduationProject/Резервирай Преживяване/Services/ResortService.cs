@@ -61,26 +61,7 @@ namespace Резервирай_Преживяване.Services
             }
             if (stars != null)
             {
-                if (stars == "1")
-                {
-                    resorts = resorts.Where(x => x.Stars == "1").ToList();
-                }
-                else if (stars == "2")
-                {
-                    resorts = resorts.Where(x => x.Stars == "2").ToList();
-                }
-                else if (stars == "3")
-                {
-                    resorts = resorts.Where(x => x.Stars == "3").ToList();
-                }
-                else if (stars == "4")
-                {
-                    resorts = resorts.Where(x => x.Stars == "4").ToList();
-                }
-                else if (stars == "5")
-                {
-                    resorts = resorts.Where(x => x.Stars == "5").ToList();
-                }
+                resorts = resorts.Where(x => x.Stars == stars).ToList();
             }
             if (prices != null)
             {
@@ -88,7 +69,7 @@ namespace Резервирай_Преживяване.Services
                 {
                     foreach (var resort in resorts)
                     {
-                        var minPricePerNight = resort.Rooms.Min(x => x.PricePerNight);
+                        var minPricePerNight = resort.Rooms.OrderBy(x => x.PricePerNight).Select(x => x.PricePerNight).FirstOrDefault();
                         if (prices[0] == "30")
                         {
                             resorts = resorts.Where(x => minPricePerNight <= 30).ToList();

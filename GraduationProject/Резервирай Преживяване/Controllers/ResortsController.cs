@@ -41,6 +41,7 @@ namespace Резервирай_Преживяване.Controllers
         public async Task<IActionResult> OrdeByStars(IndexResortsViewModel model)
         {
             model.Resorts = await service.GetAllResortsOrderedByStarsAsync();
+            model.Resorts = await service.FilterResortsAsync(model);
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View("Index", model);
         }
@@ -49,6 +50,7 @@ namespace Резервирай_Преживяване.Controllers
         public async Task<IActionResult> AllHotels(IndexResortsViewModel model)
         {
             model.Resorts = await service.GetAllHotelsAsync();
+            model.Resorts = await service.FilterResortsAsync(model);
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View("Index", model);
         }
@@ -57,6 +59,7 @@ namespace Резервирай_Преживяване.Controllers
         public async Task<IActionResult> AllGuesthouses(IndexResortsViewModel model)
         {
             model.Resorts = await service.GetAllGuesthousesAsync();
+            model.Resorts = await service.FilterResortsAsync(model);
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View("Index", model);
         }

@@ -29,7 +29,6 @@ namespace Резервирай_Преживяване.Controllers
             return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
         }
 
-        //maikatidaeba
         public async Task<IActionResult> Delete(Guid id)
         {
             Guid? resortId = await service.GetResortIdByGivenRoomId(id);

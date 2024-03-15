@@ -11,6 +11,8 @@ namespace Резервирай_Преживяване.Data.Entities
         [Required]
         public string? Description { get; set; }
         [Required]
+        public string? ImageUrl { get; set; }
+        [Required]
         public Guid CityId { get; set; }
         public City? City { get; set; }
     }
