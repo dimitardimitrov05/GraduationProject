@@ -13,7 +13,10 @@ namespace Резервирай_Преживяване.Models.ResortViewModels
         public string? ImageUrl { get; set; }
         public string? Description { get; set; }
         public string? CityName { get; set; }
+        public string? CityRegion { get; set; }
+        public Guid? CityId { get; set; }
         public HashSet<Room> Rooms { get; set; } = new HashSet<Room>();
+        public HashSet<Landmark> Landmarks { get; set; } = new HashSet<Landmark>();
         public Facility? Facility { get; set; }
     }
 }

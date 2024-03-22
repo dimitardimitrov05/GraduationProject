@@ -100,7 +100,7 @@
                                             <i class="bi bi-star-fill" style="color: #FFBF00"></i>
                                         }
                                     </div>
-                                    <p style="margin-left: 95px" class="persuasions">@resort?.City?.Name</p>
+                                    <p style="margin-left: 95px" class="persuasions">@resort?.CityName</p>
                                 </div>
                                 <div class="info">
                                     <h3 class="name"></h3>
@@ -108,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="room">
-                                    <button asp-controller="Resorts" asp-action="Info" asp-route-id="@resort?.Id" style="margin-left: 95px; border-radius: 3px;" class="btn btn-dark">Виж още</button>
+                                    <button asp-controller="Resorts" asp-action="Info" asp-route-id="@resort?.ResortId" style="margin-left: 95px; border-radius: 3px;" class="btn btn-dark">Виж още</button>
                                     @if (resort!.Rooms.Any())
                                     {
                                         <p style="font-weight: bold; font-size: 20px">@resort?.Rooms.Min(x => x.PricePerNight)лв</p>

@@ -8,7 +8,7 @@
     <div class="dropdown-menu rounded-0 m-0">
         @if (SignInManager.IsSignedIn(User))
         {
-            <a class="dropdown-item text-dark" asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Здравей @User.Identity?.Name!</a>
+            <a class="dropdown-item text-dark" asp-controller="Account" asp-action="UserProfile" title="Manage">Здравей @User.Identity?.Name!</a>
             <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
                 <button type="submit" class="dropdown-item text-dark">Изход</button>
             </form>

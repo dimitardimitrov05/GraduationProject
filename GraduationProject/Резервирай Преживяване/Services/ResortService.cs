@@ -41,7 +41,7 @@ namespace Резервирай_Преживяване.Services
                 SpaCenter = model.SpaCenter,
                 RoomService = model.RoomService,
                 ResortId = resort.Id,
-                
+
             };
 
             await context.Resorts.AddAsync(resort);
@@ -49,12 +49,27 @@ namespace Резервирай_Преживяване.Services
             await context.SaveChangesAsync();
         }
 
-        public async Task<List<Resort>> FilterResortsAsync(IndexResortsViewModel model)
+        public async Task<List<ResortViewModel>> FilterResortsAsync(IndexResortsViewModel model)
         {
             var location = model.FilterCityName;
             var stars = model.FilterStarResort;
             var prices = model?.PricePerNight?.Split('-').ToList();
-            var resorts = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).ToListAsync();
+            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
+
             if (location != null)
             {
                 resorts = resorts.Where(x => x.CityId.ToString() == location).ToList();
@@ -112,29 +127,85 @@ namespace Резервирай_Преживяване.Services
             return await context.Cities.OrderBy(x => x.Name).ToListAsync();
         }
 
-        public async Task<List<Resort>> GetAllGuesthousesAsync()
+        public async Task<List<ResortViewModel>> GetAllGuesthousesAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Къща за гости").ToListAsync();
+            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Къща за гости").
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
         }
 
-        public async Task<List<Resort>> GetAllHotelsAsync()
+        public async Task<List<ResortViewModel>> GetAllHotelsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Хотел").ToListAsync();
+            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Хотел").
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
         }
 
-        public async Task<List<Resort>> GetAllResortsAsync()
+        public async Task<List<ResortViewModel>> GetAllResortsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).ToListAsync();
+            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
         }
 
-        public async Task<List<Resort>> GetAllResortsOrderedByStarsAsync()
+        public async Task<List<ResortViewModel>> GetAllResortsOrderedByStarsAsync()
         {
-            return await context.Resorts.Include(x => x.City).Include(x => x.Rooms).Include(x => x.Facility).OrderByDescending(x => x.Stars).ToListAsync();
+            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).OrderByDescending(x => x.Stars).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
         }
 
         public async Task<ResortViewModel> InfoAsync(Guid id)
         {
-            var resort = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).ThenInclude(x => x.Images).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
+            var resort = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.Images).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
             if (resort == null)
             {
                 return null;
@@ -148,16 +219,35 @@ namespace Резервирай_Преживяване.Services
                 ImageUrl = resort.ImageUrl,
                 Description = resort.Description,
                 CityName = resort.City?.Name,
+                CityRegion = resort.City?.Region,
+                CityId = resort.CityId,
                 Rooms = resort.Rooms,
                 Facility = resort.Facility,
             };
+
+            var landmarks = context.Landmarks.Include(x => x.City).Where(x => x.City!.Name == model.CityRegion).ToHashSet();
+            model.Landmarks = landmarks;
             return model;
         }
 
         public async Task<IndexResortsViewModel> RemoveFiltersAsync()
         {
             var model = new IndexResortsViewModel();
-            model.Resorts = await context.Resorts.Include(x => x.City).Include(x => x.Rooms).ToListAsync();
+            model.Resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
             return model;
         }
     }

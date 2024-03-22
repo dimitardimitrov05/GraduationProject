@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data.Account;
 using Резервирай_Преживяване.Models.Account;
 
@@ -10,11 +11,13 @@ namespace Резервирай_Преживяване.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly IAccountService service;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IAccountService service)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.service = service;
         }
 
         [HttpGet]
@@ -89,15 +92,76 @@ namespace Резервирай_Преживяване.Controllers
             var user = await userManager.GetUserAsync(this.User);
             if (user != null)
             {
-                return View(user);
+                var model = new UserViewModel()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    Username = user.UserName,
+                };
+                return View(model);
             }
             return RedirectToAction("Index", "Home");
         }
 
-        private void Errors(IdentityResult result)
+        [HttpGet]
+        public async Task<IActionResult> UserReservations()
         {
-            foreach (var error in result.Errors)
-                ModelState.AddModelError("", error.Description);
+            var user = await userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                var model = await service.GetUserReservationsAsync(user);
+                return View(model);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Edit()
+        {
+            var user = await userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                var model = new EditUserViewModel()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    Username = user.UserName,
+                };
+                return View(model);
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditUserViewModel model)
+        {
+            var user = await userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                await service.EditUserAsync(model, user);
+                return RedirectToAction("UserProfile");
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ChangePicture()
+        {
+            var user = await userManager.GetUserAsync(this.User);
+            if (user != null)
+            {
+                var model = new UserViewModel()
+                {
+                    FirstName = user.FirstName,
+                    LastName = user.LastName,
+                    Email = user.Email,
+                    Username = user.UserName,
+                };
+                return View(model);
+            }
+            return RedirectToAction("Index", "Home");
         }
     }
 }

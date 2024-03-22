@@ -16,7 +16,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Резервирай Преживяване")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+33b47b630b5b4241d75bfcfbd7814a16d188237c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+dfbae0dfa691cf1dd256a35509c01f1d48d526be")]
 [assembly: System.Reflection.AssemblyProductAttribute("Резервирай Преживяване")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Резервирай Преживяване")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

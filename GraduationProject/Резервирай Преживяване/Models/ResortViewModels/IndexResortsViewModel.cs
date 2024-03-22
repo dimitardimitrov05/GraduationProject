@@ -8,6 +8,6 @@ namespace Резервирай_Преживяване.Models.ResortViewModels
         public string? FilterCityName { get; set; }
         public string? FilterStarResort { get; set; }
         public string? PricePerNight { get; set; }
-        public List<Resort> Resorts { get; set; } = new List<Resort>();
+        public List<ResortViewModel> Resorts { get; set; } = new List<ResortViewModel>();
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data;
 using Резервирай_Преживяване.Data.Account;
+using Резервирай_Преживяване.Helpers;
 using Резервирай_Преживяване.Services;
 
 namespace Резервирай_Преживяване
@@ -39,6 +40,9 @@ namespace Резервирай_Преживяване
 
             builder.Services.AddScoped<IResortService, ResortService>();
             builder.Services.AddScoped<IRoomService, RoomService>();
+            builder.Services.AddScoped<IAccountService, AccountService>();
+
+            builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Api:CloudinarySettings"));
 
             var app = builder.Build();
 

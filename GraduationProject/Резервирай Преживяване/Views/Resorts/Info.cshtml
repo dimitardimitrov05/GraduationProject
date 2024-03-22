@@ -52,18 +52,17 @@
             <div style="padding-left: 22px; margin-right: 20px">
             </div>
         </div>
-        <div class="col-4" style="padding-top: 20px; padding-right: 100px">
+        <div class="col-4" style="padding-top: 42px; padding-right: 100px">
             <div class="card" style="margin-left: 20px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
                 <div class="card-body">
                     <h4 class="card-title" style="color: black;">Заобикаляща природа</h4>
-                    <div class="mt-2">
-                        <p class="card-text">Белоградчишските скали</p>
-                        <img class="card-img" style="height: 200px;" src="~/img/belogradchishski skali.jpg" />
-                    </div>
-                    <div class="mt-2">
-                        <p class="card-text">Седемте рилски езера</p>
-                        <img class="card-img" style="height: 200px;" src="~/img/sedemte rilski ezera.jpeg" />
-                    </div>
+                    @foreach (var landmark in Model.Landmarks)
+                    {
+                        <div class="mt-2">
+                            <p class="card-text">@landmark.Name</p>
+                            <img class="card-img" style="height: 200px;" src="@landmark.ImageUrl" />
+                        </div>
+                    }
                 </div>
             </div>
         </div>
@@ -133,48 +132,56 @@
             {
                 <button class="btn btn-primary" asp-controller="Rooms" asp-action="Add" asp-route-id="@Model.ResortId">Добави стая</button>
             }
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th style="width: 200px">Тип спаи</th>
-                        <th style="width: 110px">Брой гости</th>
-                        <th style="width: 700px">Описание</th>
-                        <th style="width: 120px">Цена на нощувка</th>
-                        <th style="width: 100px">Брой стаи</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var room in Model.Rooms)
-                    {
+            @if (Model.Rooms.Any())
+            {
+                <table class="table">
+                    <thead>
                         <tr>
-                            <td>@room.Type</td>
-                            <td>
-                                @for (int i = 0; i < int.Parse(room.Capacity!); i++)
-                                {
-                                    <i class="bi bi-person-fill"></i>
-                                }
-                            </td>
-                            <td>@room.Description</td>
-                            <td>@room.PricePerNight лв.</td>
-                            <td>
-                                <select class="form-select">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </td>
-                            @if (User.IsInRole("Administrator"))
-                            {
-                                <td>
-                                    <button asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.Id" class="btn btn-danger" style="font-size: 10px;">Премахни</button>
-                                </td>
-                            }
+                            <th style="width: 200px">Тип спаи</th>
+                            <th style="width: 110px">Брой гости</th>
+                            <th style="width: 700px">Описание</th>
+                            <th style="width: 120px">Цена на нощувка</th>
+                            <th style="width: 100px">Брой стаи</th>
                         </tr>
-                    }
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        @foreach (var room in Model.Rooms.DistinctBy(x => x.Type))
+                        {
+                            <tr>
+                                <td>@room.Type</td>
+                                <td>
+                                    @for (int i = 0; i < int.Parse(room.Capacity!); i++)
+                                    {
+                                        <i class="bi bi-person-fill"></i>
+                                    }
+                                </td>
+                                <td>@room.Description</td>
+                                <td>@room.PricePerNight лв.</td>
+                                <td>
+                                    <select class="form-select">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                    </select>
+                                </td>
+                                @if (User.IsInRole("Administrator"))
+                                {
+                                    <td>
+                                        <button asp-controller="Rooms" asp-action="Delete" asp-route-id="@room.Id" class="btn btn-danger" style="font-size: 10px;">Премахни</button>
+                                    </td>
+                                }
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+            }
+            else
+            {
+                <p class="text-center" style="font-size: 30px">Няма налични стаи</p>
+            }
         </div>
     </div>
 </form>

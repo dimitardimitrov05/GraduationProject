@@ -1,0 +1,13 @@
+﻿@model Резервирай_Преживяване.Models.Account.UserViewModel
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <form class="requires-validation" method="post" enctype="multipart/form-data">
+            <div class="m-3">
+                <label for="picture" class="form-label">Качи изображение</label>
+                <input asp-for="Picture" accept="image/jpeg image/gif image/png" class="form-control"/>
+                <span asp-validation-for="Picture" class="text-danger"></span>
+            </div>
+            <button class="btn btn-primary" type="submit">Запази</button>
+        </form>
+    </div>
+</div>

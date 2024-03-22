@@ -22,6 +22,14 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Account/ChangePicture.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxDaGFuZ2VQaWN0dXJlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Account/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
@@ -32,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Account/UserProfile.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUHJvZmlsZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Account/UserReservations.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWNjb3VudFxVc2VyUmVzZXJ2YXRpb25zLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Home/Index.cshtml]
@@ -68,6 +80,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Shared/_ProfileLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Qcm9maWxlTGF5b3V0LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/User/OneDrive/Desktop/School/12 class/Софтуерно инженерство/GraduationProject/GraduationProject/Резервирай Преживяване/Views/Shared/_ValidationScriptsPartial.cshtml]
