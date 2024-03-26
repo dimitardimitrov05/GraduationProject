@@ -13,10 +13,6 @@ namespace Резервирай_Преживяване.Models.RoomViewModels
         [Required]
         public decimal? PricePerNight { get; set; }
         [Required]
-        public int? Bedrooms { get; set; }
-        [Required]
-        public int? Bathrooms { get; set; }
-        [Required]
         public Guid? ResortId { get; set; }
         public List<ImageViewModel> Images { get; set; } = new List<ImageViewModel>();
     }

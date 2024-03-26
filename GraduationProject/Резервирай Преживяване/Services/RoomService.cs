@@ -24,8 +24,6 @@ namespace Резервирай_Преживяване.Services
                 Capacity = model.Capacity,
                 Description = model.Description,
                 PricePerNight = model.PricePerNight,
-                Bedrooms = model.Bedrooms,
-                Bathrooms = model.Bathrooms,
                 ResortId = model.ResortId,
             };
 

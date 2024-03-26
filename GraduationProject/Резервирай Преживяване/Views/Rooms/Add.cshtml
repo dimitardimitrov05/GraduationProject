@@ -44,27 +44,12 @@
             <input type="text" class="form-control" asp-for="PricePerNight"/>
         </div>
 
-        <div class="row">
-            <div class="col-6">
-                <div class="mb-3">
-                    <label class="form-label">Брой на баните в стаята:</label>
-                    <input type="text" class="form-control" asp-for="Bathrooms" />
-                </div>
-            </div>
-            <div class="col-6">
-                <div class="mb-3">
-                    <label class="form-label">Брой на леглата в стаята:</label>
-                    <input type="text" class="form-control" asp-for="Bedrooms" />
-                </div>
-            </div>
-        </div>
-
         <div class="mb-3">
             <div id="images">
                 <div class="image">
                     <div class="mb-3">
                         <label class="form-label">URl на снимката:</label>
-                        <input type="text" name="Images[0].ImageUrl" class="form-control">
+                        <input type="text" name="Images[0].ImageUrl" placeholder="Не е задължително" class="form-control">
                     </div>
                 </div>
             </div>

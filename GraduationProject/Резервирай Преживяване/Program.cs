@@ -1,3 +1,4 @@
+using CloudinaryDotNet;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Резервирай_Преживяване.Contracts;
@@ -41,8 +42,15 @@ namespace Резервирай_Преживяване
             builder.Services.AddScoped<IResortService, ResortService>();
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
+            builder.Services.AddScoped<IImageService, ImageService>();
 
-            builder.Services.Configure<CloudinarySettings>(builder.Configuration.GetSection("Api:CloudinarySettings"));
+            var cloudinarySettings = builder.Configuration
+            .GetSection("CloudinarySettings").Get<CloudinarySettings>();
+            builder.Services.AddSingleton<Cloudinary>((sp) =>
+            {
+                return new Cloudinary(new Account(cloudinarySettings.CloudName,
+                    cloudinarySettings.ApiKey, cloudinarySettings.ApiSecrets));
+            });
 
             var app = builder.Build();
 

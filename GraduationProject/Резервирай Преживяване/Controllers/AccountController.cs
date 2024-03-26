@@ -12,12 +12,14 @@ namespace Резервирай_Преживяване.Controllers
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
         private readonly IAccountService service;
+        private readonly IImageService imageService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IAccountService service)
+        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IAccountService service, IImageService imageService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
             this.service = service;
+            this.imageService = imageService;
         }
 
         [HttpGet]
@@ -162,6 +164,18 @@ namespace Резервирай_Преживяване.Controllers
                 return View(model);
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePicture(UserViewModel model)
+        {
+            IFormFile image = model.Picture!;
+            if (image != null && image.Length > 0)
+            {
+                var imageUrl = await imageService.UploadImageAsync(image, "last");
+                ViewBag.ImageUrl = imageUrl;
+            }
+            return RedirectToAction("UserProfile");
         }
     }
 }

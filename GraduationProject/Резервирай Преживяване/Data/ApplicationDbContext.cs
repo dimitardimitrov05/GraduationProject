@@ -33,6 +33,7 @@ namespace Резервирай_Преживяване.Data
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new UserRoleConfiguration());
             builder.ApplyConfiguration(new FacilityConfiguration());
+            builder.ApplyConfiguration(new ImageConfiguration());
 
             base.OnModelCreating(builder);
         }

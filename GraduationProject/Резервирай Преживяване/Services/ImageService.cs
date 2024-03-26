@@ -4,7 +4,7 @@ using Резервирай_Преживяване.Contracts;
 
 namespace Резервирай_Преживяване.Services
 {
-    public class ImageService : IImageServise
+    public class ImageService : IImageService
     {
         private readonly Cloudinary cloudinary;
 
@@ -16,14 +16,11 @@ namespace Резервирай_Преживяване.Services
         public async Task<string> UploadImageAsync(IFormFile imageFile, string name)
         {
             using var stream = imageFile.OpenReadStream();
-
             var uploadParams = new ImageUploadParams()
             {
                 File = new FileDescription(name, stream)
             };
-
             var uploadResult = await cloudinary.UploadAsync(uploadParams);
-
             return uploadResult.SecureUrl.ToString();
         }
     }
