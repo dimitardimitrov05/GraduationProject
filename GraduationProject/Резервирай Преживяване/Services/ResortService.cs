@@ -208,7 +208,7 @@ namespace Резервирай_Преживяване.Services
             var resort = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.Images).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
             if (resort == null)
             {
-                return null;
+                throw new ArgumentNullException("Няма такъв хотел");
             }
             var model = new ResortViewModel()
             {

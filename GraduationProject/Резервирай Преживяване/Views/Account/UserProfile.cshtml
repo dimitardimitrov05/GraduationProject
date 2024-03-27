@@ -19,9 +19,10 @@
     <!-- Sidenav -->
     <div class="sidenav">
         <div class="profile">
-            @if (ViewBag.ImageUrl != null)
+            @if (Model.ProfilePicture != null)
             {
-                <img src="@ViewBag.ImageUrl" alt="Uploaded Image" width="100" height="100"><br />
+                <img src="@Model.ProfilePicture" alt="Uploaded Image" width="90" height="100">
+                <br />
             }
             else
             {

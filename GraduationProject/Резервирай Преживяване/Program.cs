@@ -45,11 +45,11 @@ namespace Резервирай_Преживяване
             builder.Services.AddScoped<IImageService, ImageService>();
 
             var cloudinarySettings = builder.Configuration
-            .GetSection("CloudinarySettings").Get<CloudinarySettings>();
+                .GetSection("CloudinarySettings").Get<CloudinarySettings>();
             builder.Services.AddSingleton<Cloudinary>((sp) =>
             {
                 return new Cloudinary(new Account(cloudinarySettings.CloudName,
-                    cloudinarySettings.ApiKey, cloudinarySettings.ApiSecrets));
+                    cloudinarySettings.ApiKey, cloudinarySettings.ApiSecret));
             });
 
             var app = builder.Build();

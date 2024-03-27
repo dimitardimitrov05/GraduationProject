@@ -100,6 +100,7 @@ namespace Резервирай_Преживяване.Controllers
                     LastName = user.LastName,
                     Email = user.Email,
                     Username = user.UserName,
+                    ProfilePicture = user.Image
                 };
                 return View(model);
             }
@@ -169,10 +170,13 @@ namespace Резервирай_Преживяване.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePicture(UserViewModel model)
         {
+            var user = await userManager.GetUserAsync(this.User);
             IFormFile image = model.Picture!;
             if (image != null && image.Length > 0)
             {
                 var imageUrl = await imageService.UploadImageAsync(image, "last");
+
+                await service.ChangeProfilePicture(user.Id, imageUrl);
                 ViewBag.ImageUrl = imageUrl;
             }
             return RedirectToAction("UserProfile");

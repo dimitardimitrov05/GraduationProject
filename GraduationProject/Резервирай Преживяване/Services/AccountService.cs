@@ -16,6 +16,14 @@ namespace Резервирай_Преживяване.Services
             this.context = context;
         }
 
+        public async Task ChangeProfilePicture(string userId, string imageUrl)
+        {
+            var user = await context.Users.FirstOrDefaultAsync(u => u.Id ==  userId);
+            user.Image = imageUrl;
+
+            await context.SaveChangesAsync();
+        }
+
         public async Task EditUserAsync(EditUserViewModel model, User user)
         {
             user.FirstName = model.FirstName;
@@ -45,6 +53,7 @@ namespace Резервирай_Преживяване.Services
                 LastName = user.LastName,
                 Email = user.Email,
                 Username = user.UserName,
+                ProfilePicture = user.Image,
                 Reservations = userReservations,
             };
             return model;

@@ -7,5 +7,6 @@ namespace Резервирай_Преживяване.Contracts
     {
         Task<UserViewModel> GetUserReservationsAsync(User user);
         Task EditUserAsync(EditUserViewModel model, User user);
+        Task ChangeProfilePicture(string userId, string imageUrl);
     }
 }

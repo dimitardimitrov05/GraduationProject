@@ -17,10 +17,14 @@ namespace Резервирай_Преживяване.Services
 
         public async Task AddReservationAsync(AddReservationViewModel model)
         {
-            var room = await context.Rooms.Where(x => x.Type == model.RoomType).ToListAsync();
-            if (room == null)
+            var rooms = await context.Rooms.Include(x => x.RoomReservations).ThenInclude(x => x.Reservation).Where(x => x.Type == model.RoomType).ToListAsync();
+            if (rooms == null)
             {
                 throw new ArgumentNullException("Няма налични стаи");
+            }
+            if (model.CheckIn < DateTime.Now || model.CheckIn > model.CheckOut || model.CheckOut < DateTime.Now)
+            {
+                throw new ArgumentException("Невалидна дата");
             }
 
         }

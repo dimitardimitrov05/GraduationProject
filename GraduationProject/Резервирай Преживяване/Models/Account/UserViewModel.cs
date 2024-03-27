@@ -10,6 +10,7 @@ namespace Резервирай_Преживяване.Models.Account
         [EmailAddress]
         public string? Email { get; set; }
         public string? Username { get; set; }
+        public string? ProfilePicture { get; set; }
         public IFormFile? Picture { get; set; }
         public HashSet<Reservation> Reservations { get; set; } = new HashSet<Reservation>();
     }
