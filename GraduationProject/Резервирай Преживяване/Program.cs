@@ -43,6 +43,7 @@ namespace Резервирай_Преживяване
             builder.Services.AddScoped<IRoomService, RoomService>();
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IImageService, ImageService>();
+            builder.Services.AddScoped<ILandmarkService, LandmarkService>();
 
             var cloudinarySettings = builder.Configuration
                 .GetSection("CloudinarySettings").Get<CloudinarySettings>();

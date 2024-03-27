@@ -59,8 +59,10 @@
                     @foreach (var landmark in Model.Landmarks)
                     {
                         <div class="mt-2">
-                            <p class="card-text">@landmark.Name</p>
-                            <img class="card-img" style="height: 200px;" src="@landmark.ImageUrl" />
+                            <a asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="@landmark.Id" style="text-decoration: none">
+                                <p class="card-text">@landmark.Name</p>
+                                <img class="card-img" style="height: 200px;" src="@landmark.ImageUrl" />
+                            </a>
                         </div>
                     }
                 </div>
