@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@model Резервирай_Преживяване.Models.ReservationViewModels.ReservationViewModel
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -42,7 +43,7 @@
                             <img class="w-100" style="height: 700px;" src="~/img/sedemte rilski ezera.jpeg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-3 text-white mb-4 animated slideInDown"></h1>
+                                    <p class="display-3 text-white mb-4 animated slideInDown">Резервирай мечтаната почивка</p>
                                 </div>
                             </div>
                         </div>
@@ -50,7 +51,7 @@
                             <img class="w-100" style="height: 700px;" src="~/img/rilski manastir.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-3 text-white mb-4 animated slideInDown"></h1>
+                                    <p class="display-3 text-white mb-4 animated slideInDown">Опознай красотата на България</p>
                                 </div>
                             </div>
                         </div>
@@ -58,7 +59,7 @@
                             <img class="w-100" style="height: 700px;" src="~/img/belogradchishski skali.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
-                                    <h1 class="display-3 text-white mb-4 animated slideInDown"></h1>
+                                    <h1 class="display-3 text-white mb-4 animated slideInDown">Превърни пътуването в хоби</h1>
                                 </div>
                             </div>
                         </div>
@@ -78,30 +79,34 @@
 
             <div class="container-fluid booking pb-5 wow fadeIn" data-wow-delay="0.1s">
                 <div class="container">
-                    <div class="bg-white shadow" style="padding: 35px;">
+                    <div class="bg-white shadow" style="padding: 15px;">
                         <div class="row g-2">
                             <div class="col-md-10">
                                 <div class="row g-2">
                                     <div class="col-md-3">
                                         <div class="date" id="date1" data-target-input="nearest">
-                                            <input type="text" class="form-control" placeholder="Дата на настаняване" data-target="#date1" data-toggle="datetimepicker" />
+                                            <label class="form-label" style="padding-top: -20px!important">Дата на настаняване</label>
+                                            <input type="date" asp-for="CheckIn" class="form-control" placeholder="Дата на настаняване" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
                                         <div class="date" id="date2" data-target-input="nearest">
-                                            <input type="text" class="form-control" placeholder="Дата на напускане" data-target="#date2" data-toggle="datetimepicker" />
+                                            <label class="form-label">Дата на настаняване</label>
+                                            <input type="date" asp-for="CheckOut" class="form-control" placeholder="Дата на напускане" />
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="На къде" />
+                                        <label class="form-label">Локация</label>
+                                        <input type="text" asp-for="Location" class="form-control" placeholder="На къде" />
                                     </div>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Гости" />
+                                        <label class="form-label">Брой гости</label>
+                                        <input type="text" asp-for="Guests" class="form-control" placeholder="Гости" />
                                     </div>
                                 </div>
                             </div>
                             <div class="col-md-2">
-                                <button class="btn btn-primary w-100">Търсене</button>
+                                <button class="btn btn-primary w-100" asp-controller="Resorts" asp-action="ResortsByLocation" style="margin-top: 32px">Търсене</button>
                             </div>
                         </div>
                     </div>

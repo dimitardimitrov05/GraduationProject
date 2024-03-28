@@ -71,61 +71,62 @@
         <div class="mt-4" style="padding-left: 115px">
             <h3>Удобства на хотела</h3>
             <div class="row">
-                <div class="col-2">
-                    @if (Model.Facility?.Wifi ?? false)
-                    {
+                @if (Model.Facility?.Wifi ?? false)
+                {
+                    <div class="col-2">
                         <i class="bi bi-wifi" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Безплатен WiFi</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-2" style="margin-left: -30px">
-                    @if (Model.Facility?.Parking ?? false)
-                    {
+                @if (Model.Facility?.Parking ?? false)
+                {
+                    <div class="col-2" style="margin-left: -30px">
                         <i class="fa-solid fa-square-parking" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Безплатен Паркинг</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-1" style="margin-right: 20px">
-                    @if (Model.Facility?.Pool ?? false)
-                    {
+                @if (Model.Facility?.Pool ?? false)
+                {
+                    <div class="col-1" style="margin-right: 20px">
                         <i class="fa-solid fa-person-swimming" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Басейн</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-2">
-                    @if (Model.Facility?.Restaurant ?? false)
-                    {
+                @if (Model.Facility?.Restaurant ?? false)
+                {
+                    <div class="col-2">
                         <i class="fa-solid fa-utensils" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Ресторант</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-2" style="margin-left: -90px">
-                    @if (Model.Facility?.Gym ?? false)
-                    {
+                @if (Model.Facility?.Gym ?? false)
+                {
+                    <div class="col-2" style="margin-left: -90px">
                         <i class="fa-solid fa-dumbbell" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Финтес</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-2" style="margin-left: -100px">
-                    @if (Model.Facility?.SpaCenter ?? false)
-                    {
+                @if (Model.Facility?.SpaCenter ?? false)
+                {
+                    <div class="col-2" style="margin-left: -100px">
                         <i class="fa-solid fa-spa" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Спа</label>
-                    }
-                </div>
+                    </div>
+                }
 
-                <div class="col-2" style="margin-left: -140px">
-                    @if (Model.Facility?.SpaCenter ?? false)
-                    {
+
+                @if (Model.Facility?.RoomService ?? false)
+                {
+                    <div class="col-2" style="margin-left: -140px">
                         <i class="fa-solid fa-burger" style="color: #FEA116; font-size: 20px"></i>
                         <label class="form-label" style="font-size: 20px">Румсървис</label>
-                    }
-                </div>
+                    </div>
+                }
             </div>
         </div>
         <div class="mt-4" style="padding-left: 115px; padding-right: 170px">

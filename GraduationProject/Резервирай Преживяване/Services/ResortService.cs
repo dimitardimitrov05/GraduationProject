@@ -250,5 +250,24 @@ namespace Резервирай_Преживяване.Services
                 }).ToListAsync();
             return model;
         }
+
+        public async Task<List<ResortViewModel>> ResortsByLocationAsync(string location)
+        {
+            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Where(x => x.City!.Name == location).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
+        }
     }
 }

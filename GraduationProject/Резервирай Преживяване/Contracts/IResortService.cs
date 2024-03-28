@@ -17,5 +17,6 @@ namespace Резервирай_Преживяване.Contracts
         Task<List<ResortViewModel>> FilterResortsAsync(IndexResortsViewModel model);
         Task<IndexResortsViewModel> RemoveFiltersAsync();
         Task<ResortViewModel> InfoAsync(Guid id);
+        Task<List<ResortViewModel>> ResortsByLocationAsync(string location);
     }
 }

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data;
+using Резервирай_Преживяване.Models.ReservationViewModels;
 using Резервирай_Преживяване.Models.ResortViewModels;
 
 namespace Резервирай_Преживяване.Controllers
@@ -21,6 +22,16 @@ namespace Резервирай_Преживяване.Controllers
             model.Resorts = await service.GetAllResortsAsync();
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View(model);
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> ResortsByLocation(ReservationViewModel reservationModel)
+        {
+            var model = new IndexResortsViewModel();
+            model.Resorts = await service.ResortsByLocationAsync(reservationModel.Location!);
+            model.Reservation = reservationModel;
+            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
+            return View("Index", model);
         }
 
         [HttpGet]
