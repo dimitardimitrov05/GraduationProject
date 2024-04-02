@@ -65,6 +65,18 @@ namespace Резервирай_Преживяване.Data.Configuration
                     RoomService = true,
                     ResortId = Guid.Parse("4e2d6327-b6f3-44b0-a892-242ac5e00d35")
                 },
+                new Facility()
+                {
+                    Id = Guid.Parse("bcbf6201-48fc-4ea2-a167-793ac221b5a3"),
+                    Wifi = true,
+                    Parking = true,
+                    Pool = false,
+                    Restaurant = true,
+                    Gym = true,
+                    SpaCenter = false,
+                    RoomService = true,
+                    ResortId = Guid.Parse("97dae8aa-2185-4a4f-81cf-983cdb3c0e7c")
+                },
             };
 
             return facilities;

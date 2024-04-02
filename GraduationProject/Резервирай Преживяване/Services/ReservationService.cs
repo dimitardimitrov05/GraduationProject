@@ -5,6 +5,7 @@ using Резервирай_Преживяване.Data;
 using Резервирай_Преживяване.Data.Account;
 using Резервирай_Преживяване.Data.Entities;
 using Резервирай_Преживяване.Models.ReservationViewModels;
+using Резервирай_Преживяване.Models.RoomViewModels;
 
 namespace Резервирай_Преживяване.Services
 {
@@ -24,8 +25,8 @@ namespace Резервирай_Преживяване.Services
                 throw new ArgumentException("Невалидна дата");
             }
 
-            var rooms = await context.Rooms.Include(x => x.RoomReservations).ThenInclude(x => x.Reservation).Where(x => x.Type == model.RoomType).ToListAsync();
-            if (rooms == null || rooms.Take((int)model.RoomCount!).ToList().Count < model.RoomCount)
+           /* var rooms = await context.Rooms.Include(x => x.RoomReservations).ThenInclude(x => x.Reservation).Where(x => x.Type == model.RoomType).ToListAsync();
+            if (rooms == null)
             {
                 throw new ArgumentNullException("Няма налични стаи");
             }
@@ -39,7 +40,6 @@ namespace Резервирай_Преживяване.Services
                         CheckIn = model.CheckIn,
                         CheckOut = model.CheckOut,
                         Guests = model.Guests,
-                        RoomCount = model.RoomCount,
                         Total = model.Total,
                     };
 
@@ -65,7 +65,7 @@ namespace Резервирай_Преживяване.Services
                     break;
                 }
             }
-
+           */
             await context.SaveChangesAsync();
         }
     }

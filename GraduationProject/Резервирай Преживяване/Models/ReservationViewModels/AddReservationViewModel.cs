@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using Резервирай_Преживяване.Models.RoomViewModels;
 
 namespace Резервирай_Преживяване.Models.ReservationViewModels
 {
@@ -11,10 +12,8 @@ namespace Резервирай_Преживяване.Models.ReservationViewMode
         [Required]
         public int? Guests { get; set; }
         [Required]
-        public int? RoomCount { get; set; }
-        [Required]
         public decimal? Total { get; set; }
         [Required]
-        public string? RoomType { get; set; }
+        public RoomViewModel? Room { get; set; }
     }
 }

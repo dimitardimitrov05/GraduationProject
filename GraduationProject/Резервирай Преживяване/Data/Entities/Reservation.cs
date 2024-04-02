@@ -13,8 +13,6 @@ namespace Резервирай_Преживяване.Data.Entities
         [Required]
         public int? Guests { get; set; }
         [Required]
-        public int? RoomCount { get; set; }
-        [Required]
         public decimal? Total { get; set; }
         public HashSet<RoomReservation> RoomReservations { get; set; } = new HashSet<RoomReservation>();
         public HashSet<ReservationUser> ReservationUsers { get; set; } = new HashSet<ReservationUser>();

@@ -131,9 +131,10 @@
         </div>
         <div class="mt-4" style="padding-left: 115px; padding-right: 170px">
             <h3>Направи резервация</h3>
+            <button asp-controller="Reservations" asp-action="Index" asp-route-id="@Model.ResortId" class="btn btn-primary">Резервирай</button>
             @if (User.IsInRole("Administrator"))
             {
-                <button class="btn btn-primary" asp-controller="Rooms" asp-action="Add" asp-route-id="@Model.ResortId">Добави стая</button>
+                <button class="btn btn-primary" style="margin-left: 20px" asp-controller="Rooms" asp-action="Add" asp-route-id="@Model.ResortId">Добави стая</button>
             }
             @if (Model.Rooms.Any())
             {
@@ -148,7 +149,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var room in Model.Rooms.DistinctBy(x => x.Type))
+                        @foreach (var room in Model.Rooms)
                         {
                             <tr>
                                 <td>@room.Type</td>

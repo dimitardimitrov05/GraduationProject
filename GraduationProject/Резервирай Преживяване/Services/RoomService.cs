@@ -55,5 +55,38 @@ namespace Резервирай_Преживяване.Services
         {
             return await context.Rooms.Where(x => x.Id == id).Select(x => x.ResortId).FirstOrDefaultAsync(); ;
         }
+
+        public async Task<List<RoomViewModel>> GetAllRoomsByHotelAsync(Guid id)
+        {
+            return await context.Rooms.Include(x => x.Images).Where(x => x.ResortId == id).Select(x => new RoomViewModel
+            {
+                Id = x.Id,
+                Type = x.Type,
+                Capacity = x.Capacity,
+                Description = x.Description,
+                PricePerNight = x.PricePerNight,
+                Images = x.Images.ToList(),
+            }).ToListAsync();
+        }
+
+        public async Task<RoomViewModel> RoomToReservateAsync(Guid id)
+        {
+            var room =  await context.Rooms.Include(x => x.Images).Select(x => new RoomViewModel
+            {
+                Id = x.Id,
+                Type = x.Type,
+                Capacity = x.Capacity,
+                Description = x.Description,
+                PricePerNight = x.PricePerNight,
+                Images = x.Images.ToList(),
+            }).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (room == null)
+            {
+                throw new ArgumentNullException("Няма такава стая");
+            }
+
+            return room;
+        }
     }
 }

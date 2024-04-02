@@ -40,7 +40,7 @@
                 <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img class="w-100" style="height: 700px;" src="~/img/sedemte rilski ezera.jpeg" alt="Image">
+                            <img class="w-100" style="height: 700px;" src="~/img/dobronishte.jpg"  alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <p class="display-3 text-white mb-4 animated slideInDown">Резервирай мечтаната почивка</p>
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100" style="height: 700px;" src="~/img/belogradchishski skali.jpg" alt="Image">
+                            <img class="w-100" style="height: 700px;" src="~/img/arkata v tyulenovo.jpg" alt="Image">
                             <div class="carousel-caption d-flex flex-column align-items-center justify-content-center">
                                 <div class="p-3" style="max-width: 700px;">
                                     <h1 class="display-3 text-white mb-4 animated slideInDown">Превърни пътуването в хоби</h1>
@@ -84,6 +84,10 @@
                             <div class="col-md-10">
                                 <div class="row g-2">
                                     <div class="col-md-3">
+                                        <label class="form-label">Локация</label>
+                                        <input type="text" asp-for="Location" class="form-control" placeholder="На къде" />
+                                    </div>
+                                    <div class="col-md-3">
                                         <div class="date" id="date1" data-target-input="nearest">
                                             <label class="form-label" style="padding-top: -20px!important">Дата на настаняване</label>
                                             <input type="date" asp-for="CheckIn" class="form-control" placeholder="Дата на настаняване" />
@@ -96,12 +100,8 @@
                                         </div>
                                     </div>
                                     <div class="col-md-3">
-                                        <label class="form-label">Локация</label>
-                                        <input type="text" asp-for="Location" class="form-control" placeholder="На къде" />
-                                    </div>
-                                    <div class="col-md-3">
                                         <label class="form-label">Брой гости</label>
-                                        <input type="text" asp-for="Guests" class="form-control" placeholder="Гости" />
+                                        <input type="text" asp-for="Guests" class="form-control" placeholder="2" />
                                     </div>
                                 </div>
                             </div>
@@ -177,40 +177,34 @@
                         <h1 class="mb-5">Едни от най-красивите места в <span class="text-primary text-uppercase">България</span></h1>
                     </div>
                     <div class="row g-4">
-                        <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/chudnite mostove.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                        <div class="col-lg-4 col-6 wow fadeInUp" data-wow-delay="0.1s">
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="4e46992e-af3f-49d9-b39e-f80911a79c5b" style="background-image: url('../img/chudnite mostove.jpg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 100px; padding-left: 100px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Чудните мостове</h5>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/krepost ovech.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="c9d62292-ef45-43d2-8599-e8561c911d49" style="background-image: url('../img/krepost ovech.jpg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 100px; padding-left: 100px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Крепост Овеч</h5>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/tyulenovo.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="803b5da6-d751-4da9-9059-b5f5a4089656" style="background-image: url('../img/sedemte rilski ezera.jpeg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 70px; padding-left: 70px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Седемте рилски езера</h5>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/ezero dobronishte.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="14ceac29-39c3-482b-b0d7-ff163d408340" style="background-image: url('../img/belogradchishski skali.jpg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 70px; padding-left: 70px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Белоградчишките скали</h5>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/veliko tarnovo.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="358770b8-c00d-48d8-b8a8-a1c7b687743a" style="background-image: url('../img/veliko tarnovo.jpg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 100px; padding-left: 100px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Царевец</h5>
                             </a>
                         </div>
                         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                            <a class="service-item rounded" href="" style="background-image: url('../img/krushunski vodopadi.jpg');background-size: cover;">
-                                <h5 class="mb-3"></h5>
-                                <p class="text-body mb-0"></p>
+                            <a class="service-item rounded" asp-controller="Landmarks" asp-action="EachLandmark" asp-route-id="a4ef6341-8fd5-489e-8a29-878a4243c170" style="background-image: url('../img/krushunski vodopadi.jpg');background-size: cover;">
+                                <h5 class="mb-3" style="font-size: 18px; background-color: black; text-decoration: none; color: white; width: 407.5px; padding-right: 70px; padding-left: 70px; margin-left: -30px; padding-top: 15px; padding-bottom: 15px; margin-top: 300px">Крушунските водопади</h5>
                             </a>
                         </div>
                     </div>

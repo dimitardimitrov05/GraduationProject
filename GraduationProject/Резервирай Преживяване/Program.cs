@@ -44,6 +44,7 @@ namespace Резервирай_Преживяване
             builder.Services.AddScoped<IAccountService, AccountService>();
             builder.Services.AddScoped<IImageService, ImageService>();
             builder.Services.AddScoped<ILandmarkService, LandmarkService>();
+            builder.Services.AddScoped<IReservationService, ReservationService>();
 
             var cloudinarySettings = builder.Configuration
                 .GetSection("CloudinarySettings").Get<CloudinarySettings>();

@@ -61,7 +61,7 @@ namespace Резервирай_Преживяване.Data.Configuration
                 {
                     Id = Guid.Parse("7fda1cee-e088-42bd-a96d-7bb2668ff1ac"),
                     Url = "https://knyazpavel.com/wp-content/uploads/2022/07/g-deluxe-room-3.jpg",
-                    RoomId = Guid.Parse("6f2d2bf9-a88b-4b78-bcaa-3e49ce30dd04")
+                    RoomId = Guid.Parse("64934542-3e3c-4292-9275-8370a627564d")
                 },
                 new Image()
                 {
@@ -147,6 +147,48 @@ namespace Резервирай_Преживяване.Data.Configuration
                     Url = "https://secure.exely.com/resource/images/rt/115278/637199615874775089-69f03cf9-1bc4-4cae-9037-91a7a4e64d03",
                     RoomId = Guid.Parse("a8c6414d-3e0d-4163-8ad4-40c5bb9b9fc5")
                 },
+                new Image()
+                {
+                    Id = Guid.Parse("593703e4-7390-4ac5-bf7c-403b57ee9ff3"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/plabo.net-0395.jpg",
+                    RoomId = Guid.Parse("3dc4f47b-086a-417b-a056-43fc084cd25d")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("46f00b54-6702-46d9-b847-b07e4c330fcf"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/21.jpg",
+                    RoomId = Guid.Parse("3dc4f47b-086a-417b-a056-43fc084cd25d")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("32688fbb-ba73-495a-9acd-81a2848fe603"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/23.jpg",
+                    RoomId = Guid.Parse("3dc4f47b-086a-417b-a056-43fc084cd25d")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("80653e22-de9c-4484-8063-8cb8939a35ba"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/17.jpg",
+                    RoomId = Guid.Parse("3fd28cb9-1944-4786-8cb3-1bd04a4b4d6c")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("b1ac92c9-210a-4918-b1b7-24ec84ac6f04"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/19.jpg",
+                    RoomId = Guid.Parse("3fd28cb9-1944-4786-8cb3-1bd04a4b4d6c")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("feaadf70-eaba-4177-9e80-b1ec52c4247d"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/plabo.net-0616.jpg",
+                    RoomId = Guid.Parse("2c21f5d9-dc4e-4e2c-b4b7-f0a719e96650")
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("b5e5fcdd-0436-4b6e-9886-dc05766892d7"),
+                    Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/plabo.net-0616.jpg",
+                    RoomId = Guid.Parse("2c21f5d9-dc4e-4e2c-b4b7-f0a719e96650")
+                }
             };
             return images;
         }

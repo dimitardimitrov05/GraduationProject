@@ -15,7 +15,6 @@ namespace Резервирай_Преживяване.Data.Entities
         public string? Description { get; set; }
         [Required]
         public decimal? PricePerNight { get; set; }
-        public bool? IsTaken { get; set; }
         [Required]
         public Guid? ResortId { get; set; }
         public Resort? Resort { get; set; }

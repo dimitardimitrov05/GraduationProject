@@ -122,6 +122,11 @@ namespace Резервирай_Преживяване.Services
             return resorts;
         }
 
+        public Task<List<ResortViewModel>> FilterResortsAsync(IndexResortsViewModel model, string location)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<City>> GetAllCitiesAsync()
         {
             return await context.Cities.OrderBy(x => x.Name).ToListAsync();
@@ -146,6 +151,11 @@ namespace Резервирай_Преживяване.Services
                 }).ToListAsync();
         }
 
+        public Task<List<ResortViewModel>> GetAllGuesthousesAsync(string location)
+        {
+            throw new NotImplementedException();
+        }
+
         public async Task<List<ResortViewModel>> GetAllHotelsAsync()
         {
             return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).Where(x => x.Type == "Хотел").
@@ -163,6 +173,11 @@ namespace Резервирай_Преживяване.Services
                     Landmarks = x.City.Landmarks,
                     Facility = x.Facility,
                 }).ToListAsync();
+        }
+
+        public Task<List<ResortViewModel>> GetAllHotelsAsync(string location)
+        {
+            throw new NotImplementedException();
         }
 
         public async Task<List<ResortViewModel>> GetAllResortsAsync()
@@ -201,6 +216,37 @@ namespace Резервирай_Преживяване.Services
                     Landmarks = x.City.Landmarks,
                     Facility = x.Facility,
                 }).ToListAsync();
+        }
+
+        public async Task<List<ResortViewModel>> GetAllResortsOrderedByStarsAsync(string? location = null)
+        {
+            var resorts = await context.Resorts
+                .Include(x => x.City)
+                .ThenInclude(x => x!.Landmarks)
+                .Include(x => x.Rooms)
+                .Include(x => x.Facility)
+                .OrderByDescending(x => x.Stars).
+                Select(x => new ResortViewModel
+                {
+                    ResortId = x.Id,
+                    Name = x.Name,
+                    Stars = x.Stars,
+                    Type = x.Type,
+                    ImageUrl = x.ImageUrl,
+                    Description = x.Description,
+                    CityName = x.City!.Name,
+                    CityId = x.CityId,
+                    Rooms = x.Rooms,
+                    Landmarks = x.City.Landmarks,
+                    Facility = x.Facility,
+                }).ToListAsync();
+
+            if (location is not null)
+            {
+                resorts = resorts.Where(x => x.CityName == location).ToList();
+            }
+
+            return resorts;
         }
 
         public async Task<ResortViewModel> InfoAsync(Guid id)
@@ -251,10 +297,15 @@ namespace Резервирай_Преживяване.Services
             return model;
         }
 
-        public async Task<List<ResortViewModel>> ResortsByLocationAsync(string location)
+        public Task<IndexResortsViewModel> RemoveFiltersAsync(string location)
         {
-            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Where(x => x.City!.Name == location).
-                Select(x => new ResortViewModel
+            throw new NotImplementedException();
+        }
+
+        public async Task<List<ResortViewModel>> ResortsByLocationAsync(string? location = null)
+        {
+            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms)
+                .Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
                     Name = x.Name,
@@ -268,6 +319,13 @@ namespace Резервирай_Преживяване.Services
                     Landmarks = x.City.Landmarks,
                     Facility = x.Facility,
                 }).ToListAsync();
+
+            if (location is not null)
+            {
+                resorts = resorts.Where(x => x.CityName == location).ToList();
+            }
+
+            return resorts;
         }
     }
 }

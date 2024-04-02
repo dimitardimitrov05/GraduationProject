@@ -8,5 +8,7 @@ namespace Резервирай_Преживяване.Contracts
         Task AddAsync(AddRoomViewModel model);
         Task DeleteRoomAsync(Guid id);
         Task<Guid?> GetResortIdByGivenRoomId(Guid id);
+        Task<List<RoomViewModel>> GetAllRoomsByHotelAsync(Guid id);
+        Task<RoomViewModel> RoomToReservateAsync(Guid id);
     }
 }
