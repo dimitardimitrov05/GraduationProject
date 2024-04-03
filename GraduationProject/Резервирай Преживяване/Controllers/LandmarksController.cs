@@ -23,5 +23,11 @@ namespace Резервирай_Преживяване.Controllers
             var landmark = await service.GetLandmarkByIdAsync(id);
             return View(landmark);
         }
+
+        public async Task<IActionResult> LandmarksByLocation(Guid id)
+        {
+            var landmarks = await service.GetLandmarksByLocation(id);
+            return View("Index", landmarks);
+        }
     }
 }

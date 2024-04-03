@@ -18,6 +18,24 @@ namespace Резервирай_Преживяване.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult Sofia()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Sozopol()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        public IActionResult Bansko()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -25,13 +25,12 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> ResortsByLocation(ReservationViewModel reservationModel)
+        public async Task<IActionResult> ResortsByLocation(Guid id)
         {
             var model = new IndexResortsViewModel();
-            model.Resorts = await service.ResortsByLocationAsync(reservationModel.Location!);
-            
+            model.Resorts = await service.ResortsByLocationAsync(id);
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", reservationModel);
+            return View("Index", model);
         }
 
         [HttpGet]

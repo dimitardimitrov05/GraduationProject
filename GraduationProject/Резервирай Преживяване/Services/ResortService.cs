@@ -311,9 +311,10 @@ namespace Резервирай_Преживяване.Services
             throw new NotImplementedException();
         }
 
-        public async Task<List<ResortViewModel>> ResortsByLocationAsync(string? location = null)
+        public async Task<List<ResortViewModel>> ResortsByLocationAsync(Guid id)
         {
             var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms)
+                .Where(x => x.CityId == id)
                 .Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
@@ -328,11 +329,6 @@ namespace Резервирай_Преживяване.Services
                     Landmarks = x.City.Landmarks,
                     Facility = x.Facility,
                 }).ToListAsync();
-
-            if (location is not null)
-            {
-                resorts = resorts.Where(x => x.CityName == location).ToList();
-            }
 
             return resorts;
         }

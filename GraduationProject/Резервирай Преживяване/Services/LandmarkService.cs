@@ -48,5 +48,18 @@ namespace Резервирай_Преживяване.Services
 
             return model;
         }
+
+        public async Task<List<LandmarkViewModel>> GetLandmarksByLocation(Guid Id)
+        {
+            return await context.Landmarks.Include(x => x.City).Where(x => x.CityId == Id).Select(x => new LandmarkViewModel
+            {
+                Id = x.Id,
+                Name = x.Name,
+                Description = x.Description,
+                ImageUrl = x.ImageUrl,
+                CityId = x.CityId,
+                CityName = x.City!.Name,
+            }).ToListAsync();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace Резервирай_Преживяване.Contracts
     {
         Task<List<LandmarkViewModel>> GetAllLandmarksAsync();
         Task<LandmarkViewModel> GetLandmarkByIdAsync(Guid Id);
+        Task<List<LandmarkViewModel>> GetLandmarksByLocation(Guid Id);
     }
 }
