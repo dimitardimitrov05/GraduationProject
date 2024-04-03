@@ -1,8 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data;
 using Резервирай_Преживяване.Data.Entities;
+using Резервирай_Преживяване.Models;
 using Резервирай_Преживяване.Models.CityViewModels;
 using Резервирай_Преживяване.Models.ResortViewModels;
 
@@ -54,6 +56,8 @@ namespace Резервирай_Преживяване.Services
             var location = model.FilterCityName;
             var stars = model.FilterStarResort;
             var prices = model?.PricePerNight?.Split('-').ToList();
+            var orderByOption = model?.OrderByOption;
+            var type = model?.FilterType;
             var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).
                 Select(x => new ResortViewModel
                 {
@@ -70,6 +74,16 @@ namespace Резервирай_Преживяване.Services
                     Facility = x.Facility,
                 }).ToListAsync();
 
+
+            resorts = orderByOption switch
+            {
+                OrderBy.Stars => resorts.OrderByDescending(x => x.Stars).ToList(),
+                _ => resorts
+            };
+            if (type != null)
+            {
+                resorts = resorts.Where(x => x.Type == type).ToList();
+            }
             if (location != null)
             {
                 resorts = resorts.Where(x => x.CityId.ToString() == location).ToList();
@@ -82,39 +96,34 @@ namespace Резервирай_Преживяване.Services
             {
                 if (prices?.Count == 1)
                 {
-                    foreach (var resort in resorts)
+                    if (prices[0] == "30")
                     {
-                        var minPricePerNight = resort.Rooms.OrderBy(x => x.PricePerNight).Select(x => x.PricePerNight).FirstOrDefault();
-                        if (prices[0] == "30")
-                        {
-                            resorts = resorts.Where(x => minPricePerNight <= 30).ToList();
-                        }
-                        else
-                        {
-                            resorts = resorts.Where(x => minPricePerNight > 100).ToList();
-                        }
+                        resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) <= 30).ToList();
+                    }
+                    else
+                    {
+                        resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 100).ToList();
                     }
                 }
                 else
                 {
                     foreach (var resort in resorts)
                     {
-                        var minPricePerNight = resort.Rooms.Min(x => x.PricePerNight);
                         if (prices?[0] == "30" && prices?[1] == "50")
                         {
-                            resorts = resorts.Where(x => minPricePerNight > 30 && minPricePerNight <= 50).ToList();
+                            resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 30 && x.Rooms.Min(y => y.PricePerNight) <= 50).ToList();
                         }
                         else if (prices?[0] == "50" && prices?[1] == "70")
                         {
-                            resorts = resorts.Where(x => minPricePerNight > 50 && minPricePerNight <= 70).ToList();
+                            resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 50 && x.Rooms.Min(y => y.PricePerNight) <= 70).ToList();
                         }
                         else if (prices?[0] == "50" && prices?[1] == "70")
                         {
-                            resorts = resorts.Where(x => minPricePerNight > 50 && minPricePerNight <= 70).ToList();
+                            resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 50 && x.Rooms.Min(y => y.PricePerNight) <= 70).ToList();
                         }
                         else
                         {
-                            resorts = resorts.Where(x => minPricePerNight > 70 && minPricePerNight <= 100).ToList();
+                            resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 70 && x.Rooms.Min(y => y.PricePerNight) <= 100).ToList();
                         }
                     }
                 }

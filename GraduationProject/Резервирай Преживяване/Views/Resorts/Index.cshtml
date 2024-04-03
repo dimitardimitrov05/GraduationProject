@@ -22,28 +22,35 @@
         <div class="col-3" style="margin-bottom: 50px;">
             <div class="card" style="margin-left: 20px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
                 <div class="card-body">
-                    <p class="card-title" style="font: 20px; font-weight: bold; color: black;">Подреди по: </p>
-                    <ul class="list-group">
-                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="OrdeByStars">Оценка на мястото</a></li>
-                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="AllHotels">Хотели</a></li>
-                        <li class="list-group-item" style="border: none;"><a asp-controller="Resorts" asp-action="AllGuesthouses">Къщи за гости</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="card" style="margin-left: 20px; margin-top: 20px; box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px;">
-                <div class="card-body">
                     <p class="card-title" style="font: 20px; font-weight: bold; color: black;">Филтри: </p>
-                    @if (this.User.IsInRole("Administrator"))
-                    {
-                        <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
-                            <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
-                                <p class="card-text">Локация</p>
-                                <select class="form-select" asp-for="FilterCityName" asp-items="@ViewBag.Cities">
-                                    <option value="" disabled selected>Избери град</option>
-                                </select>
-                            </div>
+
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Сортиране</p>
+                            <select class="form-select" asp-for="OrderByOption">
+                                <option value="" disabled selected>Избери сортиране</option>
+                                <option value="1">Оценка на мястото</option>
+                            </select>
                         </div>
-                    }
+                    </div>
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Локация</p>
+                            <select class="form-select" asp-for="FilterCityName" asp-items="@ViewBag.Cities">
+                                <option value="" disabled selected>Избери град</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Тип</p>
+                            <select class="form-select" asp-for="FilterType">
+                                <option value=""disabled selected>Избери тип</option>
+                                <option value="Хотел">Хотели</option>
+                                <option value="Къща за гости">Къщи за гости</option>
+                            </select>
+                        </div>
+                    </div>
                     <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
                         <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
                             <p class="card-text">Оценка на мястото</p>

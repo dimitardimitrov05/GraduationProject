@@ -29,13 +29,7 @@ namespace Резервирай_Преживяване.Controllers
         {
             var model = new IndexResortsViewModel();
             model.Resorts = await service.ResortsByLocationAsync(reservationModel.Location!);
-            model.Reservation = new ReservationViewModel()
-            {
-                Location = reservationModel.Location,
-                CheckIn = reservationModel.CheckIn,
-                CheckOut = reservationModel.CheckOut,
-                Guests = reservationModel.Guests,
-            };
+            
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View("Index", reservationModel);
         }
@@ -57,11 +51,8 @@ namespace Резервирай_Преживяване.Controllers
         [HttpGet]
         public async Task<IActionResult> OrdeByStars([FromQuery]IndexResortsViewModel model)
         {
-            model.Resorts = await service.GetAllResortsOrderedByStarsAsync(location: model.Reservation?.Location);
-            if (model.Reservation != null)
-            {
-                model.Resorts = await service.GetAllResortsOrderedByStarsAsync(model.Reservation.Location!);
-            }
+            model.Resorts = await service.GetAllResortsOrderedByStarsAsync();
+            
             ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
             return View("Index", model);
         }
