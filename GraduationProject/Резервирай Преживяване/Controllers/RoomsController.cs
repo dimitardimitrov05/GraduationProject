@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Models.RoomViewModels;
 
 namespace Резервирай_Преживяване.Controllers
 {
+    [Authorize]
     public class RoomsController : Controller
     {
         private readonly IRoomService service;
@@ -15,6 +17,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public IActionResult Add(Guid id)
         {
             ViewBag.ResortId = id;
@@ -22,6 +25,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Add(AddRoomViewModel model)
         {
             await service.AddAsync(model);
@@ -29,6 +33,7 @@ namespace Резервирай_Преживяване.Controllers
             return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
         }
 
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(Guid id)
         {
             Guid? resortId = await service.GetResortIdByGivenRoomId(id);

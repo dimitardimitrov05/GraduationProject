@@ -1,9 +1,11 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Models.Account;
 
 namespace Резервирай_Преживяване.Controllers
 {
+    [Authorize]
     public class ImageController : Controller
     {
         private readonly IImageService servise;
@@ -14,6 +16,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Upload(UserViewModel model)
         {
             var image = model.Picture;

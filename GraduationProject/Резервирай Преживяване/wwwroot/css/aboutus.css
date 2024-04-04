@@ -1,0 +1,89 @@
+﻿.container {
+    width: 100%;
+}
+
+    .container h1 {
+        font-size: 50px
+    }
+
+.about {
+    padding: 5% 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+    .about .left {
+        padding: 2% 0;
+        float: left;
+        width: 50%;
+        display: inline-block;
+    }
+
+    .about .right {
+        width: 50%;
+        display: inline-block;
+    }
+
+        .about .right img {
+            width: 100%
+        }
+
+    .about .left h1 {
+        text-align: center;
+        color: #FEA116;
+        margin: 0 0 10px 0;
+    }
+
+    .about .left hr {
+        width: 20%;
+        border-top: 2px solid #000;
+        border-bottom: none;
+    }
+
+    .about .left p {
+        font-size: 1rem;
+        margin: 40px auto;
+        width: 80%
+    }
+
+.mission {
+    padding: 5% 0;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+    .mission .right {
+        padding: 2% 0;
+        width: 50%;
+        display: inline-block;
+    }
+
+    .mission .left {
+        float: left;
+        width: 50%;
+        display: inline-block;
+    }
+
+        .mission .left img {
+            width: 100%;
+        }
+
+    .mission .right h1 {
+        text-align: center;
+        color: #FEA116;
+        margin: 0 0 20px 0;
+    }
+
+    .mission .right hr {
+        width: 35%;
+        border-top: 2px solid #000;
+        border-bottom: none;
+    }
+
+    .mission .right p {
+        font-size: 1rem;
+        margin: 40px auto;
+        width: 80%
+    }

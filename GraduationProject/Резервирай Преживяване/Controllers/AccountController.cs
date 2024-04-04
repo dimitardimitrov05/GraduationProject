@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Резервирай_Преживяване.Contracts;
@@ -7,6 +8,7 @@ using Резервирай_Преживяване.Models.Account;
 
 namespace Резервирай_Преживяване.Controllers
 {
+    [Authorize]
     public class AccountController : Controller
     {
         private readonly UserManager<User> userManager;
@@ -23,6 +25,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Register()
         {
             var model = new RegisterViewModel();
@@ -30,6 +33,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -56,6 +60,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public IActionResult Login()
         {
             var model = new LoginViewModel();
@@ -63,6 +68,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (!ModelState.IsValid)
@@ -82,6 +88,7 @@ namespace Резервирай_Преживяване.Controllers
             return View(model);
         }
 
+        [AllowAnonymous]
         public async Task<IActionResult> Logout()
         {
             await signInManager.SignOutAsync();

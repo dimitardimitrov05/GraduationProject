@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Data;
@@ -7,6 +8,7 @@ using Резервирай_Преживяване.Models.ResortViewModels;
 
 namespace Резервирай_Преживяване.Controllers
 {
+    [Authorize]
     public class ResortsController : Controller
     {
         private readonly IResortService service;
@@ -16,6 +18,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
             var model = new IndexResortsViewModel();
@@ -25,6 +28,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> ResortsByLocation(Guid id)
         {
             var model = new IndexResortsViewModel();
@@ -34,6 +38,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Add()
         {
             ViewBag.CityId = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
@@ -41,6 +46,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Add(AddResortViewModel model)
         {
             await service.AddAsync(model);
@@ -48,31 +54,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> OrdeByStars([FromQuery]IndexResortsViewModel model)
-        {
-            model.Resorts = await service.GetAllResortsOrderedByStarsAsync();
-            
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> AllHotels(IndexResortsViewModel model)
-        {
-            model.Resorts = await service.GetAllHotelsAsync();
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> AllGuesthouses(IndexResortsViewModel model)
-        {
-            model.Resorts = await service.GetAllGuesthousesAsync();
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
-        }
-
-        [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Filter(IndexResortsViewModel model)
         {
             model.Resorts = await service.FilterResortsAsync(model);
@@ -81,6 +63,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> RemoveFilters()
         {
             var model = await service.RemoveFiltersAsync();
@@ -89,6 +72,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpGet]
+        [AllowAnonymous]
         public async Task<IActionResult> Info(Guid id)
         {
             var model = await service.InfoAsync(id);

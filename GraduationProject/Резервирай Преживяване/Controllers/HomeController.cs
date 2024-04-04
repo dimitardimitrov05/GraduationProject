@@ -36,6 +36,12 @@ namespace Резервирай_Преживяване.Controllers
             return View();
         }
 
+        [HttpGet]
+        public IActionResult AboutUs()
+        {
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

@@ -1,10 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Резервирай_Преживяване.Contracts;
 using Резервирай_Преживяване.Models.ReservationViewModels;
 using Резервирай_Преживяване.Models.RoomViewModels;
 
 namespace Резервирай_Преживяване.Controllers
 {
+    [Authorize]
     public class ReservationsController : Controller
     {
         private readonly IReservationService reservationService;

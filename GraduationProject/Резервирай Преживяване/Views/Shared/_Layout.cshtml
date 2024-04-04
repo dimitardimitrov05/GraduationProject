@@ -21,7 +21,7 @@
                 <div class="col-lg-9">
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
-                            <div class="navbar-nav mr-auto py-0">
+                            <div class="navbar-nav mr-auto py-0" style="margin-left: 100px">
                                 <a asp-controller="Resorts" asp-action="Index" class="nav-item nav-link">Хотели</a>
                                 <a asp-controller="Landmarks" asp-action="Index" class="nav-item nav-link">Забележителности</a>
                                 @if (User.IsInRole("Administrator"))
@@ -61,10 +61,9 @@
                             <div class="row gy-5 g-4">
                                 <div class="col-md-6">
                                     <h6 class="section-title text-start text-primary text-uppercase mb-4">Научи повече</h6>
-                                    <a class="btn btn-link" href="">За нас</a>
-                                    <a class="btn btn-link" href="">Зимни почивки</a>
-                                    <a class="btn btn-link" href="">Летни почивки</a>
-                                    <a class="btn btn-link" href="">Забележителности</a>
+                                    <a class="btn btn-link" asp-controller="Home" asp-action="AboutUs">За нас</a>
+                                    <a class="btn btn-link" asp-controller="Resorts" asp-action="Index">Хотели</a>
+                                    <a class="btn btn-link" asp-controller="Landmarks" asp-action="Index">Забележителности</a>
                                 </div>
                             </div>
                         </div>
