@@ -25,6 +25,7 @@
             <label class="form-label">Студио</label><br />
             <input type="radio" name="Type" value="Апартамент" />
             <label class="form-label">Апартамент</label>
+            <span asp-validation-for="@Model.Type" class="text-danger"></span>
         </div>
 
         <input type="hidden" asp-for="ResortId" value="@ViewBag.ResortId"/>
@@ -32,16 +33,19 @@
         <div class="mb-3">
             <label class="form-label">Капацитет на стаята:</label>
             <input type="text" class="form-control" asp-for="Capacity" />
+            <span asp-validation-for="@Model.Capacity" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Описание: </label><br />
             <textarea cols="159" rows="5" class="form-control" asp-for="Description"></textarea>
+            <span asp-validation-for="@Model.Description" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
             <label class="form-label">Цена за нощувка:</label>
             <input type="text" class="form-control" asp-for="PricePerNight"/>
+            <span asp-validation-for="@Model.PricePerNight" class="text-danger"></span>
         </div>
 
         <div class="mb-3">
@@ -69,6 +73,7 @@
 </form>
 
 @section Scripts {
+<partial name="_ValidationScriptsPartial" />
 <script>
         $(function () {
             $('#addImage').click(function () {

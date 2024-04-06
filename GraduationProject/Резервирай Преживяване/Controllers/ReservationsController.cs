@@ -40,7 +40,7 @@ namespace Резервирай_Преживяване.Controllers
         [HttpPost]
         public async Task<IActionResult> Add(AddReservationViewModel model)
         {
-            if (ModelState.IsValid == false)
+            if (!ModelState.IsValid)
             {
                 return View(model);
             }

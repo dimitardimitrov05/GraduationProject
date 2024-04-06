@@ -48,16 +48,19 @@
             <div class="mb-4">
                 <label class="form-label">Дата на настаняване</label>
                 <input type="date" class="form-control" asp-for="@Model.CheckIn" value="" id="checkInDate" onchange="calculate(@Model.Room!.PricePerNight)" />
+                <span asp-validation-for="@Model.CheckIn" class="text-danger"></span>
             </div>
 
             <div class="mb-4">
                 <label class="form-label">Дата на напускане</label>
                 <input type="date" class="form-control" asp-for="@Model.CheckOut" value="" onchange="calculate(@Model.Room!.PricePerNight)" id="checkOutDate" />
+                <span asp-validation-for="@Model.CheckOut" class="text-danger"></span>
             </div>
 
             <div class="mb-5">
                 <label class="form-label">Брой гости</label>
                 <input class="form-control" asp-for="@Model.Guests" />
+                <span asp-validation-for="@Model.Guests" class="text-danger"></span>
             </div>
 
             <div class="mb-3">
@@ -72,6 +75,9 @@
         </div>
     </div>
 </form>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>

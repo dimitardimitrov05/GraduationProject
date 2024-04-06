@@ -28,6 +28,10 @@ namespace Резервирай_Преживяване.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Add(AddRoomViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             await service.AddAsync(model);
 
             return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
@@ -54,6 +58,10 @@ namespace Резервирай_Преживяване.Controllers
         [Authorize]
         public async Task<IActionResult> Edit(RoomViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             var resortId = await service.GetResortIdByGivenRoomId(model.Id);
             await service.EditAsync(model);
 

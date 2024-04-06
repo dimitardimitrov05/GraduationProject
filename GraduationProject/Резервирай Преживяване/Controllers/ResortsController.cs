@@ -49,6 +49,10 @@ namespace Резервирай_Преживяване.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Add(AddResortViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
             await service.AddAsync(model);
             return RedirectToAction("Index");
         }
