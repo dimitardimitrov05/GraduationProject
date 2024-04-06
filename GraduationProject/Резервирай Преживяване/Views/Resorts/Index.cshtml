@@ -26,6 +26,17 @@
 
                     <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
                         <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Дата на настаняване</p>
+                            <input type="date" class="form-control" asp-for="FilterCheckIn" value="" />
+                        </div>
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
+                            <p class="card-text">Дата на напускане</p>
+                            <input type="date" class="form-control" asp-for="FilterCheckOut" value="" />
+                        </div>
+                    </div>
+
+                    <div class="card" style="box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); border-radius: 5px; margin-bottom: 10px;">
+                        <div style="margin-left: 5px; margin-top: 10px; margin-bottom: 10px; margin-right: 5px;">
                             <p class="card-text">Сортиране</p>
                             <select class="form-select" asp-for="OrderByOption">
                                 <option value="" disabled selected>Избери сортиране</option>

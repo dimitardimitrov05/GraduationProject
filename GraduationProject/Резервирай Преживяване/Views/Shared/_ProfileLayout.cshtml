@@ -19,9 +19,8 @@
                     <nav class="navbar navbar-expand-lg bg-dark navbar-dark p-3 p-lg-0">
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a class="nav-item nav-link">Зимни почивки</a>
-                                <a class="nav-item nav-link">Летни почивки</a>
-                                <a class="nav-item nav-link">Забележителности</a>
+                                <a asp-controller="Resorts" asp-action="Index" class="nav-item nav-link">Хотели</a>
+                                <a asp-controller="Landmarks" asp-action="Index" class="nav-item nav-link">Забележителности</a>
                                 @if (User.IsInRole("Administrator"))
                                 {
                                     <a class="nav-item nav-link" asp-controller="Resorts" asp-action="Index">Администратор</a>

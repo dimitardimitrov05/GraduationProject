@@ -188,7 +188,13 @@ namespace Резервирай_Преживяване.Data.Configuration
                     Id = Guid.Parse("b5e5fcdd-0436-4b6e-9886-dc05766892d7"),
                     Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/plabo.net-0616.jpg",
                     RoomId = Guid.Parse("2c21f5d9-dc4e-4e2c-b4b7-f0a719e96650")
-                }
+                },
+                new Image()
+                {
+                    Id = Guid.Parse("5636c8c3-d55a-4bfc-8427-6423e387259b"),
+                    Url = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269595129.jpg?k=4510139b9a0b9d3cdd42fed45f0a6f932d2fe620ceee14014e69d2bab241a084&o=&hp=1",
+                    RoomId = Guid.Parse("5448199b-bbcf-4ea5-a120-417ca95a5933")
+                },
             };
             return images;
         }

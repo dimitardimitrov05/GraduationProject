@@ -10,10 +10,11 @@ namespace Резервирай_Преживяване.Models.ReservationViewMode
         [Required]
         public DateTime CheckOut { get; set; }
         [Required]
-        public int? Guests { get; set; }
+        public string? Guests { get; set; }
         [Required]
-        public decimal? Total { get; set; }
-        [Required]
+        public string? Total { get; set; }
+
         public RoomViewModel? Room { get; set; }
+        public Guid RoomId { get; set; }
     }
 }

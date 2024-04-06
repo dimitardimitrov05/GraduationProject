@@ -36,8 +36,26 @@ namespace Резервирай_Преживяване.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            Guid? resortId = await service.GetResortIdByGivenRoomId(id);
+            var resortId = await service.GetResortIdByGivenRoomId(id);
             await service.DeleteRoomAsync(id);
+
+            return RedirectToAction("Info", "Resorts", new { id = resortId });
+        }
+
+        [HttpGet]
+        [Authorize(Roles = "Administrator")]
+        public async Task<IActionResult> Edit(Guid id)
+        {            
+            var room = await service.RoomToEditAsync(id);
+            return View(room);
+        }
+
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit(RoomViewModel model)
+        {
+            var resortId = await service.GetResortIdByGivenRoomId(model.Id);
+            await service.EditAsync(model);
 
             return RedirectToAction("Info", "Resorts", new { id = resortId });
         }

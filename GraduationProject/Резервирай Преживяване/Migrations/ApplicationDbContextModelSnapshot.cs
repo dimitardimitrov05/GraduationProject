@@ -104,7 +104,7 @@ namespace Резервирай_Преживяване.Migrations
                         {
                             Id = "d2536968-519d-42d7-9f8a-c14e56bad4ac",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "9ae6614a-1475-4de0-8521-ebca52e96cd5",
+                            ConcurrencyStamp = "65b8ddbb-106b-4972-94ea-9b4139d62d9d",
                             Email = "george@abv.bg",
                             EmailConfirmed = false,
                             FirstName = "Георги",
@@ -112,9 +112,9 @@ namespace Резервирай_Преживяване.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "GEORGE@ABV.BG",
                             NormalizedUserName = "GEORGE",
-                            PasswordHash = "AQAAAAEAACcQAAAAEFSapwZcR0wRirtGxACoEAyACGKf+iInMwknj7iV0War2bnfmlh+cM4C3zl4KjRUSw==",
+                            PasswordHash = "AQAAAAEAACcQAAAAELAzyIuwreWLd0RJUcUntYKjxMitql0E2kEQgRcZow89HqDQkBbYRnUYrJ/ijBxCNw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "2d43c311-613c-4fd8-8e5e-05d3c3b123c6",
+                            SecurityStamp = "771f34a1-0d0b-48af-bd34-75b86549d4ce",
                             TwoFactorEnabled = false,
                             UserName = "George"
                         },
@@ -122,7 +122,7 @@ namespace Резервирай_Преживяване.Migrations
                         {
                             Id = "e067e587-1b89-4dfb-a7dd-cee434dcfc0b",
                             AccessFailedCount = 0,
-                            ConcurrencyStamp = "0c4ad7f8-1e52-483c-b193-859a8994a0c8",
+                            ConcurrencyStamp = "8c20bbaf-f992-4166-9dec-6937159e84f8",
                             Email = "dimitar@abv.bg",
                             EmailConfirmed = false,
                             FirstName = "Димитър",
@@ -130,9 +130,9 @@ namespace Резервирай_Преживяване.Migrations
                             LockoutEnabled = false,
                             NormalizedEmail = "DIMITAR@ABV.BG",
                             NormalizedUserName = "MEETYOU",
-                            PasswordHash = "AQAAAAEAACcQAAAAEC8ESsWYN4foPQ8VOLoQpOFHSHBolppC53dDQmTJJteSCtn4SK8dLZ7zobEF6QZ1Eg==",
+                            PasswordHash = "AQAAAAEAACcQAAAAEG9UN3MsIwofvVDuf4oktJQFSHQzBAodbJFdIpP3MCElNYGGzYkVZtvGG2BWpIfMPw==",
                             PhoneNumberConfirmed = false,
-                            SecurityStamp = "f7af3a93-bd6a-4af3-8a59-53f9dfb46ff2",
+                            SecurityStamp = "b57a325e-faac-4c32-a807-0d646d355990",
                             TwoFactorEnabled = false,
                             UserName = "MeetYou"
                         });
@@ -856,6 +856,12 @@ namespace Резервирай_Преживяване.Migrations
                             Id = new Guid("b5e5fcdd-0436-4b6e-9886-dc05766892d7"),
                             RoomId = new Guid("2c21f5d9-dc4e-4e2c-b4b7-f0a719e96650"),
                             Url = "https://art.magusexperience.com/wp-content/uploads/2020/03/plabo.net-0616.jpg"
+                        },
+                        new
+                        {
+                            Id = new Guid("5636c8c3-d55a-4bfc-8427-6423e387259b"),
+                            RoomId = new Guid("5448199b-bbcf-4ea5-a120-417ca95a5933"),
+                            Url = "https://cf.bstatic.com/xdata/images/hotel/max1024x768/269595129.jpg?k=4510139b9a0b9d3cdd42fed45f0a6f932d2fe620ceee14014e69d2bab241a084&o=&hp=1"
                         });
                 });
 
@@ -1576,14 +1582,14 @@ namespace Резервирай_Преживяване.Migrations
                         new
                         {
                             Id = "528726ea-e421-4a80-b303-f035355599de",
-                            ConcurrencyStamp = "6c8f50b6-7d97-41fc-a324-3e73bf0f79f6",
+                            ConcurrencyStamp = "75e3155c-40d5-4dca-b1f1-2a5bf7bd8ff8",
                             Name = "Administrator",
                             NormalizedName = "ADMINISTRATOR"
                         },
                         new
                         {
                             Id = "5dd65fa9-eb2c-4372-8084-8c501347e74f",
-                            ConcurrencyStamp = "205b30bc-9552-45e2-9966-44524f8548f8",
+                            ConcurrencyStamp = "957a4be5-a643-47c9-8699-d44f9b679c1b",
                             Name = "User",
                             NormalizedName = "USER"
                         });

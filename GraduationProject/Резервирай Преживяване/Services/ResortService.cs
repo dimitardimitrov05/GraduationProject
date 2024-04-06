@@ -58,7 +58,9 @@ namespace Резервирай_Преживяване.Services
             var prices = model?.PricePerNight?.Split('-').ToList();
             var orderByOption = model?.OrderByOption;
             var type = model?.FilterType;
-            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).
+            var checkIn = model?.FilterCheckIn;
+            var checkOut = model?.FilterCheckOut;
+            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.RoomReservations).ThenInclude(x => x.Reservation).Include(x => x.Facility).
                 Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
@@ -80,18 +82,28 @@ namespace Резервирай_Преживяване.Services
                 OrderBy.Stars => resorts.OrderByDescending(x => x.Stars).ToList(),
                 _ => resorts
             };
+
+            if (checkIn != null && checkOut != null)
+            {
+                resorts = resorts.Where(x => x.Rooms.Any(x => x.RoomReservations.Any(x => (x.Reservation!.CheckIn < checkIn && x.Reservation!.CheckOut < checkIn)
+                        || (x.Reservation!.CheckIn < checkOut && x.Reservation!.CheckOut < checkOut))) || x.Rooms.Any(x => x.RoomReservations.Count == 0)).ToList();
+            }
+
             if (type != null)
             {
                 resorts = resorts.Where(x => x.Type == type).ToList();
             }
+
             if (location != null)
             {
                 resorts = resorts.Where(x => x.CityId.ToString() == location).ToList();
             }
+
             if (stars != null)
             {
                 resorts = resorts.Where(x => x.Stars == stars).ToList();
             }
+
             if (prices != null)
             {
                 if (prices?.Count == 1)
@@ -105,6 +117,7 @@ namespace Резервирай_Преживяване.Services
                         resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 100).ToList();
                     }
                 }
+
                 else
                 {
                     foreach (var resort in resorts)

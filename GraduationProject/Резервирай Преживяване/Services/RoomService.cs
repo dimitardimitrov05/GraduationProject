@@ -88,5 +88,41 @@ namespace Резервирай_Преживяване.Services
 
             return room;
         }
+
+        public async Task<RoomViewModel> RoomToEditAsync(Guid id)
+        {
+            var room = await context.Rooms.Include(x => x.Images).Select(x => new RoomViewModel
+            {
+                Id = x.Id,
+                Type = x.Type,
+                Capacity = x.Capacity,
+                Description = x.Description,
+                PricePerNight = x.PricePerNight,
+                Images = x.Images.ToList(),
+            }).FirstOrDefaultAsync(x => x.Id == id);
+
+            if (room == null)
+            {
+                throw new ArgumentNullException("Няма такава стая");
+            }
+
+            return room;
+        }
+
+        public async Task EditAsync(RoomViewModel model)
+        {
+            var room = await context.Rooms.FindAsync(model.Id);
+
+            if (room == null)
+            {
+                throw new ArgumentNullException("Няма такава стая");
+            }
+
+            room.Capacity = model.Capacity;
+            room.Description = model.Description;
+            room.PricePerNight = model.PricePerNight;
+
+            await context.SaveChangesAsync();
+        }
     }
 }

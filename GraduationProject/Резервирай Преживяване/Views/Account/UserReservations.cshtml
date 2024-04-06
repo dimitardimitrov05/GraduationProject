@@ -13,20 +13,20 @@
 <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
 <link href="/css/bootstrap.min.css" rel="stylesheet">
 <link href="/css/style.css" rel="stylesheet">
-<link href="/css//userProfile.css" rel="stylesheet" />
+<link href="/css/reservation.css" rel="stylesheet" />
 
 <form>
     <!-- Sidenav -->
     <div class="sidenav">
-        <div class="profile">
+        <div class="testimonial-img">
             @if (Model.ProfilePicture != null)
             {
-                <img src="@Model.ProfilePicture" alt="Uploaded Image" width="90" height="100">
+                <img src="@Model.ProfilePicture" alt="Uploaded Image" height="120" width="120">
                 <br />
             }
             else
             {
-                <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" width="100" height="100">
+                <img src="https://cdn.pixabay.com/photo/2018/11/13/21/43/avatar-3814049_1280.png" height="120" width="120">
                 <br />
             }
         </div>
@@ -62,8 +62,8 @@
                             @foreach (var reservation in Model.Reservations)
                             {
                                 <tr>
-                                    <td>@reservation.CheckIn</td>
-                                    <td>@reservation.CheckOut</td>
+                                    <td>@reservation.CheckIn.ToString("dd/MM/yyyy")</td>
+                                    <td>@reservation.CheckOut.ToString("dd/MM/yyyy")</td>
                                     <td>@reservation.RoomReservations.Select(x => x?.Room?.Resort?.Name).First()</td>
                                     <td>@reservation.RoomReservations.Select(x => x?.Room?.Resort?.City?.Name).First()</td>
                                 </tr>

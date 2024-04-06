@@ -177,6 +177,10 @@ namespace Резервирай_Преживяване.Controllers
         [HttpPost]
         public async Task<IActionResult> ChangePicture(UserViewModel model)
         {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
             var user = await userManager.GetUserAsync(this.User);
             IFormFile image = model.Picture!;
             if (image != null && image.Length > 0)

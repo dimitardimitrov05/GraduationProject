@@ -36,6 +36,19 @@ body {
         box-shadow: 0px 0px 5px 1px grey;
     }
 
+.testimonial-img {
+    margin-bottom: 1.5em;
+    overflow: hidden;
+    position: relative;
+    margin-right: auto;
+    border-radius: 50%;
+    -o-transition: .3s;
+    transition: .3s;
+    height: 120px;
+    width: 120px;
+    margin-left: auto;
+}
+
 .name {
     font-size: 20px;
     font-weight: bold;
@@ -46,6 +59,7 @@ body {
     font-size: 16px;
     font-weight: bold;
     padding-top: 10px;
+    margin-left: 25%;
 }
 
 .url, hr {
@@ -96,7 +110,7 @@ body {
         background-color: #fff;
         border-radius: 18px;
         box-shadow: 1px 1px 8px 0 grey;
-        height: auto;
+        height: 250px;
         margin-bottom: 20px;
         padding: 20px 0 20px 50px;
     }
@@ -104,7 +118,8 @@ body {
         .main .card table {
             border: none;
             font-size: 16px;
-            height: 270px;
+            height: 90%;
             width: 80%;
         }
+
 /* End */
