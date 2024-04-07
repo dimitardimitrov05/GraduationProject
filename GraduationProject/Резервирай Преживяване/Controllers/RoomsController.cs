@@ -32,9 +32,17 @@ namespace Резервирай_Преживяване.Controllers
             {
                 return View(model);
             }
-            await service.AddAsync(model);
+            try
+            {
+                await service.AddAsync(model);
 
-            return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
+                return RedirectToAction("Info", "Resorts", new { id = model.ResortId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index", model);
+            }
         }
 
         [Authorize(Roles = "Administrator")]
@@ -62,10 +70,18 @@ namespace Резервирай_Преживяване.Controllers
             {
                 return View(model);
             }
-            var resortId = await service.GetResortIdByGivenRoomId(model.Id);
-            await service.EditAsync(model);
+            try
+            {
+                var resortId = await service.GetResortIdByGivenRoomId(model.Id);
+                await service.EditAsync(model);
 
-            return RedirectToAction("Info", "Resorts", new { id = resortId });
+                return RedirectToAction("Info", "Resorts", new { id = resortId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index", model);
+            }
         }
     }
 }

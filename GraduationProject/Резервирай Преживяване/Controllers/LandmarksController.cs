@@ -26,16 +26,32 @@ namespace Резервирай_Преживяване.Controllers
         [HttpGet]
         public async Task<IActionResult> EachLandmark(Guid id)
         {
-            var landmark = await service.GetLandmarkByIdAsync(id);
-            return View(landmark);
+            try
+            {
+                var landmark = await service.GetLandmarkByIdAsync(id);
+                return View(landmark);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index");
+            }
         }
 
         [AllowAnonymous]
         [HttpGet]
         public async Task<IActionResult> LandmarksByLocation(Guid id)
         {
-            var landmarks = await service.GetLandmarksByLocation(id);
-            return View("Index", landmarks);
+            try
+            {
+                var landmarks = await service.GetLandmarksByLocation(id);
+                return View("Index", landmarks);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index");
+            }
         }
     }
 }

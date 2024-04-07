@@ -45,9 +45,17 @@ namespace Резервирай_Преживяване.Controllers
                 return View(model);
             }
 
-            var user = await userManager.GetUserAsync(this.User);
-            await reservationService.AddReservationAsync(model, user);
-            return RedirectToAction("Confirm");
+            try
+            {
+                var user = await userManager.GetUserAsync(this.User);
+                await reservationService.AddReservationAsync(model, user);
+                return RedirectToAction("Confirm");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(model);
+            }
         }
 
         [HttpGet]

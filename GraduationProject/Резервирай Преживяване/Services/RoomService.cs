@@ -47,13 +47,17 @@ namespace Резервирай_Преживяване.Services
         public async Task DeleteRoomAsync(Guid id)
         {
             var room = await context.Rooms.FirstOrDefaultAsync(x => x.Id == id);
-            context.Rooms.Remove(room!);
+            if (room == null)
+            {
+                throw new ArgumentNullException("Няма такава стая");
+            }
+            context.Rooms.Remove(room);
             await context.SaveChangesAsync();
         }
 
         public async Task<Guid?> GetResortIdByGivenRoomId(Guid id)
         {
-            return await context.Rooms.Where(x => x.Id == id).Select(x => x.ResortId).FirstOrDefaultAsync(); ;
+            return await context.Rooms.Where(x => x.Id == id).Select(x => x.ResortId).FirstOrDefaultAsync();
         }
 
         public async Task<List<RoomViewModel>> GetAllRoomsByHotelAsync(Guid id)

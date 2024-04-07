@@ -85,6 +85,10 @@ namespace Резервирай_Преживяване.Services
 
             if (checkIn != null && checkOut != null)
             {
+                if (checkIn < DateTime.Now || checkIn > checkOut || checkOut < DateTime.Now)
+                {
+                    throw new ArgumentException("Невалидна дата");
+                }
                 resorts = resorts.Where(x => x.Rooms.Any(x => x.RoomReservations.Any(x => (x.Reservation!.CheckIn < checkIn && x.Reservation!.CheckOut < checkIn)
                         || (x.Reservation!.CheckIn < checkOut && x.Reservation!.CheckOut < checkOut))) || x.Rooms.Any(x => x.RoomReservations.Count == 0)).ToList();
             }

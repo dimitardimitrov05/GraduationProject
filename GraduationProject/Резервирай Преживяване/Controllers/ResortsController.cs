@@ -53,17 +53,38 @@ namespace Резервирай_Преживяване.Controllers
             {
                 return View(model);
             }
-            await service.AddAsync(model);
-            return RedirectToAction("Index");
+            try
+            {
+                await service.AddAsync(model);
+                return RedirectToAction("Index");
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View(model);
+            }
         }
 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> Filter(IndexResortsViewModel model)
         {
-            model.Resorts = await service.FilterResortsAsync(model);
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
+            if (!ModelState.IsValid)
+            {
+                return View("Index", model);
+            }
+
+            try
+            {
+                model.Resorts = await service.FilterResortsAsync(model);
+                ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index", model);
+            }
         }
 
         [HttpGet]
