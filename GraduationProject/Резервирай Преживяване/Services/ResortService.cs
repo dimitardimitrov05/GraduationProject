@@ -60,7 +60,7 @@ namespace Резервирай_Преживяване.Services
             var type = model?.FilterType;
             var checkIn = model?.FilterCheckIn;
             var checkOut = model?.FilterCheckOut;
-            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.RoomReservations).ThenInclude(x => x.Reservation).Include(x => x.Facility).
+            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.RoomReservations).ThenInclude(x => x.Reservation).Include(x => x.Facility).
                 Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
@@ -129,10 +129,6 @@ namespace Резервирай_Преживяване.Services
                         if (prices?[0] == "30" && prices?[1] == "50")
                         {
                             resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 30 && x.Rooms.Min(y => y.PricePerNight) <= 50).ToList();
-                        }
-                        else if (prices?[0] == "50" && prices?[1] == "70")
-                        {
-                            resorts = resorts.Where(x => x.Rooms.Min(y => y.PricePerNight) > 50 && x.Rooms.Min(y => y.PricePerNight) <= 70).ToList();
                         }
                         else if (prices?[0] == "50" && prices?[1] == "70")
                         {

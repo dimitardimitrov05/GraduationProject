@@ -34,9 +34,9 @@ namespace Резервирай_Преживяване
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             builder.Services.AddControllersWithViews();
 
-            builder.Services.ConfigureExternalCookie(options =>
+            builder.Services.ConfigureApplicationCookie(options =>
             {
-                options.LogoutPath = "/Account/Login";
+                options.LoginPath = "/Account/Login";
             });
 
             builder.Services.AddScoped<IResortService, ResortService>();

@@ -64,7 +64,7 @@
             </div>
 
             <div class="mb-3">
-                <label asp-for="Total" class="form-label" style="font-size: 25px" id="labelTotal">0.00 лв.</label>
+                <label asp-for="Total" class="form-label" style="font-size: 25px" id="labelTotal">0.00 лв</label>
                 <input type="hidden" asp-for="Total" value="" id="inputTotal" />
                 <input type="hidden" asp-for="RoomId" value="@Model.Room.Id"/>
             </div>
@@ -75,9 +75,7 @@
         </div>
     </div>
 </form>
-@section Scripts {
-    <partial name="_ValidationScriptsPartial" />
-}
+
 
 <!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
@@ -98,7 +96,7 @@
     function calculate(roomPricePerNight) {
         let checkOut = document.getElementById("checkOutDate");
         let checkIn = document.getElementById("checkInDate");
-        if (checkOut.value != '' && checkIn.value != '' || checkOut.value > checkIn.value {
+        if (checkOut.value != '' && checkIn.value != '' || checkOut.value > checkIn.value) {
             const checkInDate = new Date(checkIn.value);
             const checkOutDate = new Date(checkOut.value);
 
