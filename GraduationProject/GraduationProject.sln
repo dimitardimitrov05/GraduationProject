@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34202.233
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Резервирай Преживяване", "Резервирай Преживяване\Резервирай Преживяване.csproj", "{2CB7F9B6-3213-4890-9585-2183615D6D94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Резервирай Преживяване", "Резервирай Преживяване\Резервирай Преживяване.csproj", "{2CB7F9B6-3213-4890-9585-2183615D6D94}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test.Резервирай_Преживяване", "Test.Резервирай_Преживяване\Test.Резервирай_Преживяване.csproj", "{D6206506-4680-4B5C-B05E-9ED3F1287E4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2CB7F9B6-3213-4890-9585-2183615D6D94}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CB7F9B6-3213-4890-9585-2183615D6D94}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CB7F9B6-3213-4890-9585-2183615D6D94}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D6206506-4680-4B5C-B05E-9ED3F1287E4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D6206506-4680-4B5C-B05E-9ED3F1287E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D6206506-4680-4B5C-B05E-9ED3F1287E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D6206506-4680-4B5C-B05E-9ED3F1287E4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

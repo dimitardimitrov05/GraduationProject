@@ -48,10 +48,18 @@ namespace Резервирай_Преживяване.Controllers
         [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Delete(Guid id)
         {
-            var resortId = await service.GetResortIdByGivenRoomId(id);
-            await service.DeleteRoomAsync(id);
+            try
+            {
+                var resortId = await service.GetResortIdByGivenRoomId(id);
+                await service.DeleteRoomAsync(id);
 
-            return RedirectToAction("Info", "Resorts", new { id = resortId });
+                return RedirectToAction("Info", "Resorts", new { id = resortId });
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpGet]

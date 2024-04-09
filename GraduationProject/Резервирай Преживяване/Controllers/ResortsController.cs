@@ -21,20 +21,36 @@ namespace Резервирай_Преживяване.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> Index()
         {
-            var model = new IndexResortsViewModel();
-            model.Resorts = await service.GetAllResortsAsync();
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View(model);
+            try
+            {
+                var model = new IndexResortsViewModel();
+                model.Resorts = await service.GetAllResortsAsync();
+                ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
+                return View(model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return RedirectToAction("Index", "Home");
+            }
         }
 
         [HttpGet]
         [AllowAnonymous]
         public async Task<IActionResult> ResortsByLocation(Guid id)
         {
-            var model = new IndexResortsViewModel();
-            model.Resorts = await service.ResortsByLocationAsync(id);
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
+            try
+            {
+                var model = new IndexResortsViewModel();
+                model.Resorts = await service.ResortsByLocationAsync(id);
+                ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index");
+            }
         }
 
         [HttpGet]
@@ -75,6 +91,7 @@ namespace Резервирай_Преживяване.Controllers
             }
 
             try
+
             {
                 model.Resorts = await service.FilterResortsAsync(model);
                 ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
@@ -91,9 +108,17 @@ namespace Резервирай_Преживяване.Controllers
         [AllowAnonymous]
         public async Task<IActionResult> RemoveFilters()
         {
-            var model = await service.RemoveFiltersAsync();
-            ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
-            return View("Index", model);
+            try
+            {
+                var model = await service.RemoveFiltersAsync();
+                ViewBag.Cities = new SelectList(await service.GetAllCitiesAsync(), "Id", "Name");
+                return View("Index", model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("", ex.Message);
+                return View("Index");
+            }
         }
 
         [HttpGet]

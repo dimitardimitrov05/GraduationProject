@@ -98,13 +98,12 @@
     function calculate(roomPricePerNight) {
         let checkOut = document.getElementById("checkOutDate");
         let checkIn = document.getElementById("checkInDate");
-        if (checkOut.value != '' && checkIn.value != '') {
+        if (checkOut.value != '' && checkIn.value != '' || checkOut.value > checkIn.value {
             const checkInDate = new Date(checkIn.value);
             const checkOutDate = new Date(checkOut.value);
 
             const differenceInDays = (checkOutDate.getTime() - checkInDate.getTime()) / (1000 * 3600 * 24);
             const totalPrice = (differenceInDays * roomPricePerNight).toFixed(2);
-            // @Model.Total = totalPrice;
             console.log(totalPrice);
 
             document.getElementById("labelTotal").textContent = `${totalPrice} лв.`;
