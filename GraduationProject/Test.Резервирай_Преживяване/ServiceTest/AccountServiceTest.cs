@@ -33,5 +33,16 @@ namespace Test.Резервирай_Преживяване.ServiceTest
             var ex = Assert.ThrowsAsync<ArgumentNullException>(async ()
                => await accountService.ChangeProfilePicture(userId, null));
         }
+
+        [Test]
+        public void ChangePicture_ThrowsNullExceptionsIfUserIdIsNull()
+        {
+            using var data = DatabaseMock.Instance;
+      
+            var accountService = new AccountService(data);
+
+            var ex = Assert.ThrowsAsync<ArgumentNullException>(async ()
+               => await accountService.ChangeProfilePicture(null, "dsfxvesdfsd"));
+        }
     }
 }
