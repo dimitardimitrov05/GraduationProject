@@ -296,7 +296,7 @@ namespace Test.Резервирай_Преживяване.ServiceTest
         }
 
         [Test]
-        public void CreateReservation_ThrowsArgumentExceptionIfTheCheckDateIsBetweenAlreadyBookedReservation()
+        public async Task CreateReservation_CreateReservationCorrectlyWhenThereAreMoreReservationForTheRoom()
         {
             using var data = DatabaseMock.Instance;
 
@@ -319,10 +319,10 @@ namespace Test.Резервирай_Преживяване.ServiceTest
                         Reservation = new Reservation()
                         {
                             Id = reservationId,
-                             CheckIn = new DateTime(2024, 5, 4),
+                             CheckIn = new DateTime(2024, 5, 5),
                              CheckOut = new DateTime(2024, 5, 6),
                              Guests = 2,
-                             Total = 46,
+                             Total = 23,
                         }
                     }
                 }
@@ -330,10 +330,10 @@ namespace Test.Резервирай_Преживяване.ServiceTest
             data.SaveChanges();
             var model = new AddReservationViewModel()
             {
-                CheckIn = new DateTime(2024, 5, 5),
-                CheckOut = new DateTime(2024, 5, 7),
+                CheckIn = new DateTime(2024, 5, 8),
+                CheckOut = new DateTime(2024, 5, 9),
                 Guests = "2",
-                Total = "46.0",
+                Total = "23.0",
                 RoomId = roomId,
             };
             var user = new User()
@@ -346,8 +346,9 @@ namespace Test.Резервирай_Преживяване.ServiceTest
 
             var reservationService = new ReservationService(data);
 
-            var ex = Assert.ThrowsAsync<ArgumentException>(async ()
-               => await reservationService.AddReservationAsync(model, user));
+            await reservationService.AddReservationAsync(model, user);
+
+            Assert.That(data.Reservations.Count, Is.EqualTo(2));
         }
     }
 }

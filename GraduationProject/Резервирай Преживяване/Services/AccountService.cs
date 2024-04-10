@@ -18,6 +18,10 @@ namespace Резервирай_Преживяване.Services
 
         public async Task ChangeProfilePicture(string userId, string imageUrl)
         {
+            if (imageUrl == null)
+            {
+                throw new ArgumentNullException("Низът не трябва да празен");
+            }
             var user = await context.Users.FirstOrDefaultAsync(u => u.Id ==  userId);
             if (user == null)
             {
