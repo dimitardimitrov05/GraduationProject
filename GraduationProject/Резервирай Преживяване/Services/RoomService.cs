@@ -75,7 +75,7 @@ namespace Резервирай_Преживяване.Services
 
         public async Task<RoomViewModel> RoomToReservateAsync(Guid id)
         {
-            var room =  await context.Rooms.Include(x => x.Images).Select(x => new RoomViewModel
+            var room = await context.Rooms.Include(x => x.Images).Select(x => new RoomViewModel
             {
                 Id = x.Id,
                 Type = x.Type,

@@ -21,6 +21,14 @@ namespace Резервирай_Преживяване.Services
 
         public async Task AddReservationAsync(AddReservationViewModel model, User user)
         {
+            if (user == null)
+            {
+                throw new ArgumentNullException("Невалиден потребител");
+            }
+            if (model == null)
+            {
+                throw new ArgumentNullException("Попълни данните");
+            }
             if (model.CheckIn < DateTime.Now || model.CheckIn > model.CheckOut || model.CheckOut < DateTime.Now)
             {
                 throw new ArgumentException("Невалидна дата");

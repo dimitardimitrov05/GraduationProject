@@ -45,6 +45,18 @@ namespace Test.Резервирай_Преживяване.ServiceTest
         }
 
         [Test]
+        public async Task ListLandmarks_ReturnsNullIfThrereIsNoLandmarks()
+        {
+            using var data = DatabaseMock.Instance;
+
+            var landmarkService = new LandmarkService(data);
+
+            var result = await landmarkService.GetAllLandmarksAsync();
+
+            Assert.That(result.Count, Is.EqualTo(0));   
+        }
+
+        [Test]
         public async Task GetLandmark_ReturnsLandmarkByIdCorrectly()
         {
             using var data = DatabaseMock.Instance;
@@ -114,6 +126,16 @@ namespace Test.Резервирай_Преживяване.ServiceTest
             Assert.That(result, Is.TypeOf<List<LandmarkViewModel>>());
         }
 
-        
+        [Test]
+        public async Task GetLandmark_ThrowsNullExceptionIfGivenWrongLocationId()
+        {
+            var data = DatabaseMock.Instance;
+
+            var landmarkService = new LandmarkService(data);
+
+            var result = await landmarkService.GetLandmarksByLocation(Guid.NewGuid());
+
+            Assert.That(result.Count(), Is.EqualTo(0));
+        }
     }
 }
