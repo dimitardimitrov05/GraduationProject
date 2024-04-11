@@ -13,13 +13,20 @@ namespace Резервирай_Преживяване.Controllers
     {
         private readonly UserManager<User> userManager;
         private readonly SignInManager<User> signInManager;
+        private readonly RoleManager<IdentityRole> roleManager;
         private readonly IAccountService service;
         private readonly IImageService imageService;
 
-        public AccountController(UserManager<User> userManager, SignInManager<User> signInManager, IAccountService service, IImageService imageService)
+
+        public AccountController(UserManager<User> userManager, 
+            SignInManager<User> signInManager, 
+            RoleManager<IdentityRole> roleManager, 
+            IAccountService service, 
+            IImageService imageService)
         {
             this.userManager = userManager;
             this.signInManager = signInManager;
+            this.roleManager = roleManager;
             this.service = service;
             this.imageService = imageService;
         }
@@ -50,6 +57,7 @@ namespace Резервирай_Преживяване.Controllers
             var result = await userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {
+                await userManager.AddToRoleAsync(user, "User");
                 return RedirectToAction("Login", "Account");
             }
             foreach (var item in result.Errors)
