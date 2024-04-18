@@ -9,5 +9,6 @@ namespace Резервирай_Преживяване.Models.Account
         [EmailAddress]
         public string? Email { get; set; }
         public string? Username { get; set; }
+        public string? ProfilePicture { get; set; }
     }
 }

@@ -60,7 +60,13 @@ namespace Резервирай_Преживяване.Services
             var type = model?.FilterType;
             var checkIn = model?.FilterCheckIn;
             var checkOut = model?.FilterCheckOut;
-            var resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.RoomReservations).ThenInclude(x => x.Reservation).Include(x => x.Facility).
+            var resorts = await context.Resorts
+                .Include(x => x.City)
+                .ThenInclude(x => x.Landmarks)
+                .Include(x => x.Rooms)
+                .ThenInclude(x => x.RoomReservations)
+                .ThenInclude(x => x.Reservation)
+                .Include(x => x.Facility).
                 Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
@@ -93,10 +99,10 @@ namespace Резервирай_Преживяване.Services
                         || (x.Reservation!.CheckIn < checkOut && x.Reservation!.CheckOut < checkOut))) || x.Rooms.Any(x => x.RoomReservations.Count == 0)).ToList();
             }
 
-            if (type != null)
-            {
-                resorts = resorts.Where(x => x.Type == type).ToList();
-            }
+                if (type != null)
+                {
+                    resorts = resorts.Where(x => x.Type == type).ToList();
+                }
 
             if (location != null)
             {
@@ -151,7 +157,10 @@ namespace Резервирай_Преживяване.Services
 
         public async Task<List<ResortViewModel>> GetAllResortsAsync()
         {
-            return await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).Include(x => x.Facility).
+            return await context.Resorts.Include(x => x.City)
+                .ThenInclude(x => x!.Landmarks)
+                .Include(x => x.Rooms)
+                .Include(x => x.Facility).
                 Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,
@@ -170,7 +179,13 @@ namespace Резервирай_Преживяване.Services
 
         public async Task<ResortViewModel> InfoAsync(Guid id)
         {
-            var resort = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).ThenInclude(x => x.Images).Include(x => x.Facility).FirstOrDefaultAsync(x => x.Id == id);
+            var resort = await context.Resorts
+                .Include(x => x.City)
+                .ThenInclude(x => x!.Landmarks)
+                .Include(x => x.Rooms)
+                .ThenInclude(x => x.Images)
+                .Include(x => x.Facility)
+                .FirstOrDefaultAsync(x => x.Id == id);
             if (resort == null)
             {
                 throw new ArgumentNullException("Няма такъв хотел");
@@ -198,7 +213,12 @@ namespace Резервирай_Преживяване.Services
         public async Task<IndexResortsViewModel> RemoveFiltersAsync()
         {
             var model = new IndexResortsViewModel();
-            model.Resorts = await context.Resorts.Include(x => x.City).ThenInclude(x => x!.Landmarks).Include(x => x.Rooms).
+            model.Resorts = await context.Resorts
+                .Include(x => x.City)
+                .ThenInclude(x => x!.Landmarks)
+                .Include(x => x.Rooms)
+                .ThenInclude(x => x.RoomReservations)
+                .ThenInclude(x => x.Reservation).
                 Select(x => new ResortViewModel
                 {
                     ResortId = x.Id,

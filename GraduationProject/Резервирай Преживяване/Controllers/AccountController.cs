@@ -146,6 +146,7 @@ namespace Резервирай_Преживяване.Controllers
                     LastName = user.LastName,
                     Email = user.Email,
                     Username = user.UserName,
+                    ProfilePicture = user.Image
                 };
                 return View(model);
             }

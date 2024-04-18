@@ -71,7 +71,7 @@ namespace Резервирай_Преживяване.Controllers
         }
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles = "Administrator")]
         public async Task<IActionResult> Edit(RoomViewModel model)
         {
             if (!ModelState.IsValid)
